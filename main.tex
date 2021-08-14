@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\title{Höhere Mathematik für die Fachrichtung Informatik - Zusammenfassung}
+\author{Felix Möller}
+\date{August 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Folgen}
+
+\subsection{Monotoniekriterium}
+Sei $(a_n)$ eine Folge. Dann gilt:
+\begin{enumerate}[a)]
+    \item $(a_n)$ ist monoton wachsend und nach oben beschränkt $\Rightarrow$ $(a_n)$ ist konvergent und
+    $\lim \limits_{n \to \infty} a_n = \sup \limits_{n \in \mathbb{N}} a_n$
+    \item $(a_n)$ ist monoton fallend und nach unten beschränkt $\Rightarrow$ $(a_n)$ ist konvergent und
+    $\lim \limits_{n \to \infty} a_n = \inf \limits_{n \in \mathbb{N}} a_n$
+\end{enumerate}
+
+\subsection{Bolzano-Weierstraß}
+Jede beschränkte Folge enthält eine konvergente Teilfolge
+
+\section{Reihen}
+Wichtige Reihen:
+\begin{enumerate}[a)]
+    \item $\sum \limits_{n=1}^{\infty} x^n = \frac{1}{1-x}$ falls $|x| < 1$
+    \item $\sum \limits_{n=1}^{\infty} \frac{1}{n(n+1)} = 1$
+    \item $\sum \limits_{n=1}^{\infty} \frac{1}{n!} = e$
+    \item $\sum \limits_{n=1}^{\infty} \frac{1}{n}$ ist divergent
+    \item $\sum \limits_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} = \log 2$
+\end{enumerate}
+
+\subsection{Monotoniekriterium}
+\begin{enumerate} [a)]
+    \item Sind alle $a_n \geq 0$ und ist $(s_n)$ beschränkt, so ist $\sum \limits_{n=1}^{\infty} a_n$ konvergent
+    \item $\sum \limits_{n=1}^{\infty} a_n$ konvergiert $\Rightarrow a_n$ ist Nullfolge
+\end{enumerate}
+
+\subsection{Leibnizkriterium}
+Sei $b_n$ eine monoton fallende Nullfolge. Dann konvergiert $\sum \limits_{n=1}^{\infty} (-1)^{n+1} b_n$
+
+\subsection{Absolute Konvergenz}
+Eine Reihe ist absolut konvergent genau dann, wenn $\sum \limits_{n=1}^{\infty} |b_n|$ konvergiert.
+Absolute Konvergenz impliziert Konvergenz \\
+Dreiecksungleichung für Reihen: $|\sum \limits_{n=1}^{\infty} a_n| \leq \sum \limits_{n=1}^{\infty} |a_n|$
+
+\subsection{Majorantenkriterium}
+Sei $|a_n| \leq b_n$ für fast alle $n \in \mathbb{N}$ und $\sum \limits_{n=1}^{\infty} b_n$ ist konvergent.
+Dann ist $\sum \limits_{n=1}^{\infty} a_n$ absolut konvergent.
+
+\subsection{Minorantenkriterium}
+Sei $a_n \geq b_n > 0$ für fast alle $n \in \mathbb{N}$ und $\sum \limits_{n=1}^{\infty} b_n$ ist divergent.
+Dann ist $\sum \limits_{n=1}^{\infty} a_n$ divergent.
+
+\subsection{Wurzelkriterium}
+Sei $(a_n)$ eine Folge. Dann gilt:
+\begin{enumerate}[a)]
+    \item $\sqrt[n]{|a_n|}$ ist unbeschränkt $\Rightarrow a_n$ ist divergent
+    \item Ist $\limsup \limits_{n \to \infty} \sqrt[n]{|a_n|}
+    \begin{cases} <1 \text{, so ist} \sum \limits_{n=1}^{\infty} a_n \text{ absolut konvergent} \\
+    > 1 \text{, so ist}  \sum \limits_{n=1}^{\infty} a_n \text{ divergent} \end{cases}$ \\
+    Im Fall $\limsup \limits_{n \to \infty} \sqrt[n]{|a_n|} = 1$ ist keine Aussage möglich
+\end{enumerate}
+
+\subsection{Quotientenkriterium}
+Sei $a_n \neq 0$ ffa $n \in \mathbb{N}$ und $c_n \coloneqq |\frac{a_{n+1}}{a_n}|$. Dann gilt:
+\begin{enumerate}[a)]
+    \item $c_n \geq 1$ ffa $n \in \mathbb{N} \Rightarrow$
+\end{enumerate}
+
+
+\end{document}
