@@ -200,7 +200,165 @@ Voraussetzung: $x_0 \in I$ ist lokales Extremum von $f$, $f$ ist diffbar in $x_0
 \subsection{Mittelwertsatz}
 Voraussetzung: $f \in C([a,b])$ und $f$ sei auf $(a,b)$ diffbar. Dann gilt: 
 \begin{align*}
-    \exists \xi
+    \exists \xi \in (a,b): \frac{f(b) - f(a)}{b-a} = f'(\xi)
 \end{align*}
+
+\subsection{Satz von L'Hôpital}
+Voraussetzung:
+\begin{itemize}
+    \item $I=(a,b)$, wobei $-\infty=a$ oder $b=\infty$ zulässig sind
+    \item $f,g: I \to \mathbb{R}$ sind auf $I$ differenzierbar mit $g'(x) \neq 0 (x \in I)$
+    \item $c=a \text{ oder } c=b$
+\end{itemize}
+Gilt $\lim \limits_{x \to c} f(x) = \lim \limits_{x \to c} g(x) = 0$ oder $\lim \limits_{x \to c} g(x) \pm \infty$, so ist 
+\begin{align*}
+    L \coloneqq \lim \limits_{x \to c} \frac{f'(x)}{g'(x)} =  \lim \limits_{x \to c} \frac{f(x)}{g(x)}
+\end{align*}
+für den Fall, dass $L$ existiert.
+
+\subsection{Differenzieren von Potenzreihen}
+Es sei $ f(x) \coloneqq \sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$ eine Potenzreihe (PR) mit Konvergenzradius (KR) $r>0$. Dann gilt: \\
+\begin{enumerate}[a)]
+    \item Die PR $\sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1}$ hat KR $r$
+    \item $f'(x) = \sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1}$
+\end{enumerate}
+
+\subsection{Tangens}
+Die Funktion $\tan x \coloneqq \frac{\sin x}{\cos x}$ heißt Tangens. Es gilt: $(\tan x)' = \frac{1}{\cos^2(x)}$. \\
+Die Umkehrfunktion des Tangens heißt Arkustangens. Es gilt: 
+\begin{enumerate}[a)]
+    \item $\arctan: \mathbb{R} \to (-\frac{\pi}{2},\frac{\pi}{2})$
+    \item $(\arctan x)' = \frac{1}{1+x^2}$
+\end{enumerate}
+
+\subsection{Abelscher Grenzwertsatz und wichtige Reihenwerte}
+Konvergiert eine PR $\sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$ mit KR $r$ auch in $x_0 \pm r$, so ist sie auch stetig in $x_0 \pm r$. \\
+Anwendung:
+\begin{enumerate} [a)]
+    \item $\log(1+x) = \sum \limits_{n=1}^{\infty} (-1)^{n+1} \frac{x^n}{n}$
+    \item $\log 2 = \sum \limits_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$
+    \item $\arctan x = \sum \limits_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1}$
+    \item $\arctan 1 = \frac{\pi}{4}$
+\end{enumerate}
+
+\newpage
+
+\subsection{Satz von Taylor}
+Voraussetzung: Es sei $n \in \mathbb{N}_0$ und $f$ auf $I$ $(n+1)$-mal differenzierbar. Dann existiert ein $\xi \in (\min\{x,x_0\}),\max\{x,x_0\}$ mit 
+\begin{align*}
+    f(x) = \sum \limits_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + \frac{f^{(n+1)} (\xi)}{(n+1)!} (x-x_0)^{n+1},
+\end{align*}
+wobei der erste Summand $T_n f(x,x_0) \coloneqq$ n-tes Taylorpolynom von $f$ im Punkt $x_0$ und der zweite Summand das Restglied ist.
+
+\subsection{Bestimmung lokaler Extremstellen}
+Es sei $n \geq 2 \text{, } f \in C^n(I) \text{, } x_0 \in I$ innerer Punkt von $I$, $f'(x_0) = f''(x_0)=\ldots=f^{(n-1)}(x_0)=0$ und $f^{(n)}(x_0) \neq 0$.
+Dann gilt:
+\begin{enumerate} [a)]
+    \item Ist $n$ gerade und $f^{(n)}(x_0)<0$, so hat $f$ in $x_0$ ein lokales Maximum
+    \item Ist $n$ gerade und $f^{(n)}(x_0)>0$, so hat $f$ in $x_0$ ein lokales Minimum
+    \item Ist $n$ ungerade, so hat $f$ in $x_0$ kein lokales Extremum
+\end{enumerate}
+
+\section{Das Riemann-Integral}
+Monotone und stetige Funktionen sind riemann-integrierbar.
+
+\subsection{Erster Hauptsatz der Differential- und Integralrechnung}
+Ist $f \in R([a,b])$ und besitzt eine Stammfunktion, so ist $\int_a^b f(x)dx = F(b) - F(a)$
+
+\subsection{Integrale gleichmäßig konvergenter Funktionenfolgen}
+Es sei $(f_n)$ eine Folge in $R([a,b])$ und $f_n$ konvergiert gleichmäßig auf $[a,b]$ gegen $f$. Dann:
+\begin{enumerate}
+    \item $f \in R([a,b])$
+    \item $\lim \limits_{n \to \infty} \int_a^b f_n(x) dx = \int_a^b f(x) dx$
+\end{enumerate}
+
+\subsection{Integration von Potenzreihen}
+$g(x) \coloneqq \sum \limits_{n=0}^{\infty} a_n (x-x_0)^n \Rightarrow G(x) \coloneqq \sum \limits_{n=0}^{\infty} \frac{a_n}{n+1} (x-x_0)^{n+1}$, 
+wobei $G(x)$ den gleichen Konvergenzradius wie $g(x)$ besitzt
+
+\subsection{Ein paar wichtige Erkenntnisse}
+Es seien $f,g \in R(]a,b])$.
+\begin{enumerate} [a)]
+    \item Es sei $h$ lipschitzstetig auf $([a,b])$. Dann ist $h \circ f \in R([a,b])$
+    \item $|f| \in R([a,b])$ und $|\int_a^b f(x) dx| \leq \int_a^b|f(x)| dx$ (Dreiecksungleichung für Integrale)
+    \item $f \cdot g \in R([a,b])$ (Das Produkt integrierbarer Funktionen ist integrierbar)
+    \item Ist $f(x) \neq 0 (x \in [a,b]$ und $\frac{1}{g}$ beschränkt auf $[a,b]$, so ist $\frac{1}{g}$ integrierbar.
+\end{enumerate}
+
+\subsection{Regeln für Integrationsgrenzen}
+Es ist $\int_\alpha^\alpha f(x) dx \coloneqq 0$ und $\int_\alpha^\beta f(x) dx \coloneqq -\int_\beta^\alpha f(x) dx$
+
+\subsection{Zweiter Hauptsatz}
+Es sei $f \in R([a,b])$ und $F(x) \coloneqq \int_a^x f(t) dt (x \in [a,b])$. Dann gilt:
+\begin{enumerate}[a)]
+    \item $F(y) - F(x) = \int_x^y f(t) dt$
+    \item $F$ ist Lipschitz-stetig
+    \item Ist $f \in C([a,b])$, so ist $F \in C^1([a,b])$ und $F'(x) = f(x)$
+\end{enumerate}
+Folgerung: Stetige Funktionen (auf Intervallen) haben Stammfunktionen
+
+\subsection{Partielle Integration}
+\begin{align*}
+    \int_a^b f'g dx = \Big[fg \Big]_{a}^b - \int_a^b fg' dx
+\end{align*}
+
+\subsection{Substitutionsregeln}
+Voraussetzung: $I,J$ sind Intervalle in $\mathbb{R}$, $f \in C(I), g \in C^1(J)$ und $g(J) \subseteq I$.
+\begin{enumerate}[a)]
+    \item $\int f(g(t)) g'(t) dt = \int f(x) dx \mid_{x=g(t)}$
+    \item Es sei $g(t) \neq 0$. Dann:
+    \begin{align*}
+        \int f(x) dx = \int f(g(t)) g'(t) dt \mid_{t=g^{-1}(x)}
+    \end{align*}
+    \item Ist $I = \langle a,b \rangle, J = \langle \alpha, \beta \rangle, g(\alpha) = a \text{und} g(\beta)=b$, so gilt
+    \begin{align*}
+        \int_a^b f(x) dx = \int_\alpha^\beta f(g(t))g'(t)dt
+    \end{align*}
+\end{enumerate}
+
+\subsection{Mittelwertsatz der Integralrechnung}
+Voraussetzung: $f,g \in R([a,b]), g \geq 0$ auf $[a,b], m \coloneqq \inf f([a,b])$ und $M \coloneqq \sup f([a,b])$. Dann gilt: \\
+\begin{enumerate} [a)]
+    \item $\exists \mu \in [m,M]: \int_a^b fg dx = \mu \int_a^b g dx$
+    \item $\exists \mu \in [m.M]: \int_a^b f dx = \mu (b-a)$
+\end{enumerate}
+Ist $f \in C([a,b])$, so existiert ein $\xi \in [a,b]$ mit $\mu = f(\xi)$ in a) bzw. b)
+
+\section{Uneigentliche Integrale}
+Definition: Das uneigentliche Integral $\int_\alpha^\beta f(x)dx$ heißt konvergent $\Leftrightarrow$ 
+\begin{align*}
+    \text{Es existiert } \lim \limits_{t \to \beta -} \int_\alpha^t f(x)dx
+\end{align*}
+bzw.
+\begin{align*}
+    \lim \limits_{t \to \alpha +} \int_t^\beta f(x) dx
+\end{align*}
+
+Definition: Es sei $\alpha < \beta, \alpha \in \mathbb{R} \cup \{-\infty\}, \beta \in \mathbb{R} \cup \{\infty\}$ und 
+$f:(a,b) \to \mathbb{R}$. Das uneigentliche Integral $\int_\alpha^\beta f(x) dx$ heißt konvergent: $\Leftrightarrow$
+\begin{align*}
+    \exists c \in (\alpha, \beta): \int_\alpha^c f(x)dx \text{ und } \int_c^\beta f(x)dx konvergieren
+\end{align*}
+Sonst ist $\int_\alpha^\beta f(x)dx$ divergent.
+
+Definition $\int_\alpha^\beta f(x)dx$ heißt \underline{absolut konvergent} $\Leftrightarrow \int_\alpha^\beta |f(x)| dx$ konvergiert.
+
+\subsection{Abschätzen von uneigentlichen Integralen}
+\begin{enumerate} [a)]
+    \item Ist $\int_\alpha^\beta f(x) dx$ absolut konvergent, so ist $\int_\alpha^\beta f(x) dx$ konvergent und 
+    $|\int_\alpha^\beta f(x) dx| \leq \int_\alpha^\beta |f(x)| dx$
+    \item \underline{Majorantenkriterium}: Ist $|f| \leq h$ auf $[\alpha,\beta)$ und $\int_\alpha^\beta h(x)dx$ konvergent, so ist
+    $\int_\alpha^\beta f(x)dx$ absolut konvergent.
+    \item \underline{Minorantenkriterium} Ist $f\geq h \geq 0$ auf $[a,b)$ und $\int_\alpha^\beta h(x)$ divergent, so ist 
+    $\int_\alpha^\beta f(x)dx$ divergent.
+\end{enumerate}
+
+\section{Die komplexe Exponentialfunktion}
+Die Menge $\mathbb{C}$ der komplexen Zahlen ist ein Körper. Die Binomische(n) Formel(n) gilt in $\mathbb{C}$ und die geometrische Summenformel
+ebenfalls. Sei $z=x+iy \in \mathbb{C}$. Es gilt:
+\begin{enumerate}
+    \item $|z| \coloneqq$
+\end{enumerate}
+
 
 \end{document}
