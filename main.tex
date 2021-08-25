@@ -353,12 +353,146 @@ Definition $\int_\alpha^\beta f(x)dx$ heißt \underline{absolut konvergent} $\Le
     $\int_\alpha^\beta f(x)dx$ divergent.
 \end{enumerate}
 
-\section{Die komplexe Exponentialfunktion}
+\section{Die Komplexe Exponentialfunktion}
+
+\subsection{Einführung in komplexe Zahlen}
 Die Menge $\mathbb{C}$ der komplexen Zahlen ist ein Körper. Die Binomische(n) Formel(n) gilt in $\mathbb{C}$ und die geometrische Summenformel
 ebenfalls. Sei $z=x+iy \in \mathbb{C}$. Es gilt:
-\begin{enumerate}
-    \item $|z| \coloneqq$
+\begin{enumerate} [a)]
+    \item $|z| \coloneqq \sqrt{x^2 + y^2}$ \underline{Betrag} von z
+    \item $\Bar{z} \coloneqq x-iy$ ist das \underline{komplex Konjugierte} von $z=x+iy \in \mathbb{C}$
+    \item $z \cdot \Bar{z} = |z|^2$
+    \item $|z \cdot w| = |z| \cdot |w|$
+    \item $|z+w| \leq |z| + |w|$
 \end{enumerate}
 
+Definition: Die auf $\mathbb{C}$ definierte Funktion
+\begin{align*}
+    z=x+iy \mapsto e^z \coloneqq e^x (\cos y) + i\sin y)
+\end{align*}
+heißt \underline{komplexe Exponentialfunktion}.
 
+\subsection{Eigenschaften der komplexen Exponentialfunktion}
+\begin{enumerate}
+    \item $\forall z,w \in \mathbb{C}: e^{z+w} = e^z \cdot e^w, \forall z \in \mathbb{C} \forall n \in \mathbb{Z}: e^{nz}=(e^z)^n$
+    \item $\forall t \in \mathbb{R}: |e^{it}| = 1$ und $e^{-it} = \overline{e^{it}}$
+    \item $e^{\pi i} + 1 = 0$ (Eulersche Identität)
+    \item $\forall k \in \mathbb{Z} \forall z \in \mathbb{C}: e^{z+2k\pi i} = e^z$
+    \item $\forall z \in \mathbb{C}: \cos z = \frac{1}{2} (e^{iz} + e^{-iz})$ \, $\sin z = \frac{1}{2i}$
+\end{enumerate}
+
+\underline{Polarkoordinaten}: Sei $z=x+iy \in \mathbb{C} (x,y \in \mathbb{R}$ und $z \neq 0$. Setze $r \coloneqq |z| = \sqrt{x^2 + y^2}$.
+Wähle Argument $\varphi$ von $z$: $\cos \varphi = \frac{x}{r}, \sin \varphi = \frac{y}{r}$. Also ist $z=x+iy = r\cos \varphi + i\sin \varphi = re^{i\varphi} = |z|e^{i \arg z}$
+
+\subsection{Fundamentalsatz der Algebra}
+Über $\mathbb{C}$ zerfällt jedes Polynom mit Grad $\geq 1$ in Linearfaktoren.
+
+\subsection{Wurzeln in $\mathbb{C}$}
+Die n-ten Einheitswurzeln einer Zahl $z$ aus $\mathbb{C}$ sind von der Form 
+\begin{align*}
+    z_k \coloneqq \sqrt[n]{r} e^{\frac{\varphi + 2k\pi}{n}} \text{ für ein } k \in \{0,1,\ldots,n-1\}
+\end{align*}
+
+\newpage
+
+Möglichkeiten zum Wurzelziehen in $\mathbb{C}$:
+\underline{Beispiel}: $\sqrt{-3+4i}$
+\begin{enumerate}
+    \item $w=u+iv$. Dann gilt
+    \begin{align*}
+        w^2 = u^2 + 2iuv - v^2 = -3+4i \Leftrightarrow u^2 - v^2 = -3 \text{ und } 2iuv=4i
+    \end{align*}
+    Löse das Gleichungssystem
+    \item $z=-3+4i$. Bestimme $|z|$ und $\arg z$. Dann sind 
+    \begin{align*}
+        \pm \sqrt{|z|} e^{i \frac{\arg z}{2}} \text{ die Wurzeln von } z
+    \end{align*}
+    \item Ist $z \in (-\infty,0]$, so sind $w=\pm i \sqrt{-z}$ die Wurzeln von $z$
+    \item pq-Formel
+\end{enumerate}
+
+\subsection{Komplexer Logarithmus}
+Sei $w\in \mathbb{C} \setminus \{0\}, r=|w|$ und $\varphi = \arg w$. Für $z \in \mathbb{C}$ gilt: 
+\begin{align*}
+    z \text{ ist ein Logarithmus von } w \Leftrightarrow \exists k \in \mathbb{Z}: z = \log |w| + i\varphi + 2k\pi i
+\end{align*}
+
+\section{Fourierreihen}
+Betrachte die Eigenschaft: $(V) \coloneqq f: \mathbb{R} \to \mathbb{R}, f \in R([-\pi,\pi])$ und $f$ ist \\
+auf $\mathbb{R} \text{ }2\pi$-periodisch, d.h. $f(x+2\pi) = f(x) (x \in \mathbb{R})$ \\
+
+Definition: Seien $(a_n)_{n=0}^{\infty}$ und $(b_n)_{n=0}^{\infty}$ Folgen in $\mathbb{R}$. Eine Reihe der Form
+\begin{align*}
+    \frac{a_0}{2} + \sum \limits_{n=1}^{\infty} (a_n \cos (nx) + b_n \sin (nx))
+\end{align*}
+heißt \underline{trigonometrische Reihe} (TR). \\
+
+\underline{Definition Fourierkoeffizienten/Fourierreihe}:
+Die Funktion f erfülle $(V)$. Setze 
+\begin{align*}
+    a_n \coloneqq \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(nx) dx, \hspace{0.5cm}b_n \coloneqq \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(nx) dx
+\end{align*}
+
+Die Zahlen $a_n$ und $b_n$ heißen \underline{Fourierkoeffizienten (FK)} von $f$ und die mit $a_n$ und $b_n$ gebildete trigonometrische Reihe heißt die zu $f$
+gehörende \underline{Fourierreihe}. Man schreibt: $f(x) \sim \frac{a_0}{2} + \sum \limits_{n=1}^{\infty} (a_n \cos(nx) + b_n \sin(nx))$
+
+\subsection{Nützliches zu Fourierreihen und -koeffizienten}
+Für $f$ gelte $(V)$.
+\begin{enumerate} [a)]
+    \item Ist $f$ gerade, also $f(x) = f(-x) (x \in \mathbb{R})$, so gilt für die Fourierkoeffizienten von f:
+    \begin{align*}
+        a_n = \frac{2}{\pi} \int_0^{\pi} f(x) \cos(nx) dx (n \in \mathbb{N}_0) \text{ und } b_n=0 (n \in \mathbb{N})
+    \end{align*}
+    \item Ist $f$ ungerade, also $f(x) = -f(-x) (x \in \mathbb{R}$, so gilt für die Fourierkoeffizienten von f:
+    \begin{align*}
+        a_n = 0 \text{ und } b_n= \frac{2}{\pi} \int_0^{\pi} f(x) \sin(nx) dx (n \in \mathbb{N}_0))
+    \end{align*}
+\end{enumerate}
+Definition: Wir setzen $g(x_0\pm) \coloneqq \lim \limits_{x \to x_0 \pm} g(x)$, falls der Grenzwert existiert und reell ist.
+Definition: Es sei $f:\mathbb{R} \to \mathbb{R} \text{ } 2\pi$-periodisch. Die Funktion heißt \underline{stückweise glatt}: $\Leftrightarrow$ es existiert eine
+Zerlegung $\{t_0,t_1,\ldots,t_n\}$ des Intervalls $[-\pi,\pi]$ mit:
+\begin{enumerate}[i)]
+    \item $f \in C^1((t_{j-1},t_j)) (j=1,\ldots,n)$
+    \item $\forall x \in \mathbb{R}: \exists f(x-),f'(x-),f(x+),f'(x+)$
+\end{enumerate}
+I.d.F. setzen wir $s_f(x) \coloneqq \frac{f(x+) + f(x-)}{2} (x \in \mathbb{R})$
+
+\subsection{Konvergenz von Fourierreihen}
+Die Funktion $f$ sei $2\pi$-periodisch und stückweise glatt. Dann konvergiert die Fourierreihe von $f$ in jedem $x \in \mathbb{R}$ gegen $s_f(x)$. Ist in diesem
+Fall $f$ in $x \in \mathbb{R}$ stetig, so konvergiert die Fourierreihe gegen $f(x)$.
+
+\subsection{Weitere Konvergenzerkenntnisse zu Fourierreihen}
+Es sei $f \in C(\mathbb{R}), 2\pi$-periodisch und stückweise glatt. Dann gilt:
+\begin{enumerate}
+    \item Die Fourierreihe von $f$ konvergiert in jedem $x \in \mathbb{R}$ absolut und sie konvergiert auf $\mathbb{R}$ gleichmäßig gegen $f$.
+    \item Die Reihen der Fourierkoeffizienten konvergieren absolut.
+\end{enumerate}
+
+\section{Der Raum $\mathbb{R}^n$}
+Definition: $xy \coloneqq x_1y_1 + \ldots + x_ny_n$ heißt \underline{Skalarprodukt}. Die Zahl $\| x \| \coloneqq \sqrt{x\cdot x} = \sqrt{x_1^2 + \ldots x_n^2}$
+heißt Norm von $x$. Die Zahl $\| x-y\|$ heißt der Abstand von $x$ und $y$.
+
+\subsection{Wichtige (Un)gleichungen}
+Seien $x,y,z \in \mathbb{R}^n$ und $x \in \mathbb{R}$
+\begin{enumerate} [a)]
+    \item $(x+y) \cdot z = xz + yz$
+    \item $\| \alpha x \| = |\alpha| \cdot \| x\|$
+    \item $|x\cdot y| \leq \| x\| \cdot \| y\|$ (Cauchy-Schwarsche Ungleichung)
+    \item $\|x+y\| \leq  \|x\| + \| y\|$ (Dreiecksungleichung)
+    \item $|\| x \| - \| y \|| \leq \| x-y \|$
+\end{enumerate}
+\begin{align*}
+    \|A\| = (\sum \limits_{j=1}^{m} \sum \limits_{k=1}^{n} a_{jk}^2)^{\frac{1}{2}} \text{ heißt die \underline{Norm von A}}
+\end{align*}
+Es gilt $\| AB\| \leq \| A \| \| B \|$ \\
+Definition: $U_\varepsilon (x_0) \coloneqq \{x \in \mathbb{R}^n: |x-x_0| < \varepsilon \}$ heißt die \underline{offene Kugel um $x_0$} \\
+$\overline{U_\varepsilon(x_0)} \coloneqq \{ x \in \mathbb{R}^n: |x-x_0| \leq \varepsilon\}$ heißt die \underline{abgeschlossene Kugel um $x_0$} \\
+
+\underline{Definition}: Sei $A \subseteq \mathbb{R}^n$
+\begin{enumerate} [a)]
+    \item $A$ heißt \underline{beschränkt} $\Leftrightarrow \exists c \geq 0 \forall a \in A: \| a \| \leq c$
+    \item $A$ heißt \underline{offen} $\Leftrightarrow \forall a \in A \exists \varepsilon = \varepsilon(a) > 0: U_\varepsilon(a) \subseteq A$ 
+    \item $A$ heißt \underline{abgeschlossen} $\Leftrightarrow \mathbb{R}^n \setminus A$ ist offen
+    \item $A$ heißt \underline{kompakt} $\Leftrightarrow A$ ist beschränkt und abgeschlossen 
+\end{enumerate}
 \end{document}
