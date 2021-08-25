@@ -71,8 +71,136 @@ Sei $(a_n)$ eine Folge. Dann gilt:
 \subsection{Quotientenkriterium}
 Sei $a_n \neq 0$ ffa $n \in \mathbb{N}$ und $c_n \coloneqq |\frac{a_{n+1}}{a_n}|$. Dann gilt:
 \begin{enumerate}[a)]
-    \item $c_n \geq 1$ ffa $n \in \mathbb{N} \Rightarrow$
+    \item $c_n \geq 1$ ffa $n \in \mathbb{N} \Rightarrow \sum \limits_{n=1}^{\infty} a_n$ ist divergent
+    \item $\limsup \limits_{n \to \infty} c_n < 1 \Rightarrow \sum \limits_{n=1}^{\infty} a_n$ ist konvergent
+    \item $\limsup \limits_{n \to \infty} c_n > 1 \Rightarrow \sum \limits_{n=1}^{\infty} a_n$ ist divergent
 \end{enumerate}
 
+\subsection{Cauchyprodukt}
+Cauchyprodukt: $c_n \coloneqq \sum \limits_{n=0}^{n}b_{n-k}a_k$ \\
+Seien $\sum \limits_{n=0}^{\infty} a_n$ und $\sum \limits_{n=0}^{\infty} b_n$ absolut konvergent. Dann gilt: \\
+$\sum \limits_{n=0}^{\infty} c_n$ ist absolut konvergent und $\sum \limits_{n=0}^{\infty} c_n = (\sum \limits_{n=0}^{\infty} a_n) (\sum \limits_{n=0}^{\infty} b_n)$
+
+\section{Potenzreihen}
+Konvergenzradius einer Potenzreihe (PR): $r \coloneqq \frac{1}{\limsup \limits_{n \to \infty} \sqrt[n]{|a_n|}}$, \\
+wobei $\sum \limits_{n=0}^{\infty} a_n (x-x_0)^n$
+
+\subsection{Quotientenkriterium für Potenzreihen}
+Sei $a_n \neq 0$ ffa $n \in \mathbb{N}$. Wenn $|\frac{a_n}{a_{n+1}}|$ konvergiert, dann ist $r \coloneqq \lim \limits_{n \to \infty} |\frac{a_n}{a_{n+1}}|$
+
+\subsection{Reihendarstellung von Sinus und Cosinus}
+$\sin(x) \coloneqq \sum \limits_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}$ \hspace{3em} $\cos(x) \coloneqq \sum \limits_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}$ \\
+Additionstheoreme: \\
+$\sin(x+y) = \sin x \cos y + \sin y \cos x$ \\
+$\cos(x+y) = \cos x \cos y - \sin x \sin y$
+
+\section{q-adische Entwicklung}
+Sei $x \in \mathbb{R}$. Verfahren der q-adischen Entwicklung einer Zahl $a$:
+\begin{itemize}
+    \item $z_0 \coloneqq [a]$
+    \item $z_{n+1} \coloneqq [(a - z_0 - \frac{z_1}{q} - \ldots - \frac{z_n}{q^n}) q^{n+1}]$
+\end{itemize}
+q-adischer Bruch: $\sum \limits_{n=0}^{\infty} \frac{y_n}{q^n} = y_0,y_1y_2y_3\ldots$
+
+\section{Stetigkeit}
+
+\subsection{Zwischenwertsatz}
+Es seien $a,b \in \mathbb{R}\text{, } a<b \text{, } f \in C ([a,b])$ und $y_0 \in [\text{min}\{f(a), f(b)\}, \text{max}\{f(a), f(b)\}]$. Dann existiert ein $x_0 \in [a,b] \text{mit} f(x_0)=y_0$
+
+\subsection{Nullstellensatz von Bolzano}
+Ist $f \in C([a,b])$ und $f(a)f(b) \leq 0$, so existiert ein $x_0 \in [a,b] \text{ mit } f(x_0)=0$ \\
+
+\subsection{Abgeschlossenheit}
+Für jede konvergente Folge $(x_n)$ in $D \subseteq \mathbb{R}$ gilt: $\lim \limits_{n \to \infty} x_n \in D$
+
+\subsection{Kompaktheit}
+Jede Folge $(x_n)$ in $D \subseteq \mathbb{R}$ enthält eine konvergente Teilfolge $(x_{n_k})$ mit $\lim \limits_{k \to \infty} x_{n_k} \in D$
+
+\subsection{Logarithmusgesetze}
+\begin{enumerate}[a)]
+    \item $\forall x,y > 0: \log(xy) = \log x + \log y$
+    \item $\forall x,y > 0: \log(\frac{x}{y}) = \log x - \log y$
+\end{enumerate}
+
+\subsection{Allgemeine Potenz}
+$a^x \coloneqq e^{x \log a}$ \hspace{2em} $(a > 0)$
+
+\subsection{Gleichmäßige Stetigkeit}
+Sind $(x_n)(y_n)$ Folgen mit $x_n - y_n \to 0$, so gilt $f(x_n)-f(y_n) \to 0$
+
+\subsection{Satz von Heine}
+Jede stetige Funktion ist auf einem kompakte Intervall gleichmäßig stetig.
+
+\subsection{Lipschitz-Stetigkeit}
+$\exists L \geq 0: \forall x,y \in D: |f(x)-f(y)| \leq L|x-y|$ \\
+f ist Lipschitz-stetig $\Rightarrow$ f ist gleichmäßig stetig
+
+\section{Funktionenfolgen und -reihen}
+Die Funktionenfolge heißt auf $D$ \underline{punktweise konvergent} $\Leftrightarrow$ für jedes $x \in D$ ist die Folge $(f_n(x))$ konvergent.
+I.d.F. sei $f(x) \coloneqq \lim \limits_{n \to \infty} f_n(x)$ (Grenzfunktion). 
+Die Definition von \underline{Summenfunktionen} bei Funktionsreihen funktioniert analog.
+
+\subsection{Gleichmäßige Konvergenz}
+Definition: $\forall \varepsilon > 0: \exists n_0=n_0(\varepsilon) \in \mathbb{N}: \forall n \geq n_0: \forall x \in D; |f_n(x) - f(x)| < \varepsilon$ \\
+Analog die Definition für Funktionenreihen
+
+\subsection{Kriterien für gleichmäßige Konvergenz}
+\begin{enumerate}[a)]
+    \item $(f_n)$ konvergiere punktweise gegen $f$ und $(\alpha_n)$ sei eine Nullfolge. Dann gilt: \\
+    $\forall n \geq m: \forall x \in D: |f_n(x) - f(x)| \leq \alpha_n \Rightarrow$ gleichmäßige Konvergenz
+    \item Sei $(c_n)$ eine Folge in $[0,\infty)$, $\sum \limits_{n=1}^{\infty} c_n$ sei konvergent und $\forall n \leq m. \forall x \in D: |f_n(x)| \leq c_n$.
+    Dann konvergiert $\sum \limits_{n=1}^{\infty} f_n$ auf $D$ gleichmäßig. (Kriterium von Weierstraß)
+\end{enumerate}
+Jede Potenzreihe konvergiert \textbf{in} $(x_0-r, x_0+r)$ gleichmäßig!
+
+\subsection{Stetigkeit von Grenzfunktionen}
+$(f_n)$ bzw. $\sum \limits_{n=1}^{\infty} f_n$ konvergiere gleichmäßig auf $D$ gegen $f$. Dann gilt: \\
+\begin{enumerate}[a)]
+    \item $\forall n \in \mathbb{N}: f_n$ ist stetig $\Rightarrow f$ ist stetig
+    \item Sind alle $f_n \in C(D)$, so ist $f \in C(D)$
+\end{enumerate}
+Wichtige Folgerungen:
+\begin{enumerate} [a)]
+    \item Konvergiert $(f_n)$ punktweise gegen $f$ und gilt $f_n \in C(D) (n \in \mathbb{N})$ aber $f \notin C(D)$, so ist die Konvergenz \underline{nicht gleichmäßig}. 
+    \item Wenn alle $f_n$ in $x_0$ stetig sind, dann gilt: 
+    \begin{align*}
+        \lim \limits_{x \to x_0} (\lim \limits_{n \to \infty} f_n(x)) =  \lim \limits_{n \to \infty} (\lim \limits_{x \to x_0} f_n(x))
+    \end{align*}
+\end{enumerate}
+
+\newpage
+
+
+\section{Differentialrechnung}
+
+\subsection{Differenzierbarkeitsbegriff}
+Wenn $\lim \limits_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}\Leftrightarrow \lim \limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h}$ existiert,
+dann ist $f$ in $x_0$ \underline{differenzierbar}. Dazu gilt: $f$ ist differenzierbar $\Rightarrow$ $f$ ist stetig
+
+\subsection{Differenzierbarkeitsregeln}
+\begin{enumerate}[a)]
+    \item $(\alpha f + \beta g)' = \alpha f' + \beta g'$ (Summenregel)
+    \item $(fg)' = f'g + fg'$ (Produktregel)
+    \item $(\frac{f}{g})' = \frac{f'g - fg'}{g^2}$ (Quotientenregel)
+    \item $(f(g))' = f'(g) \cdot g'$ (Kettenregel)
+\end{enumerate}
+
+\subsection{Umkehrsatz}
+Voraussetzung(en): $f$ ist stetig und streng monoton, in $x_0$ differenzierbar und $f'(x_0) \neq 0$. Dann gilt: \\
+\begin{align*}
+    (f^{-1)})'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(f^{-1}(y_0)}
+\end{align*}
+
+\subsection{Grenzwertdarstellung der eulerschen Zahl}
+$e^{a} = \lim \limits_{x \to \infty} (1 + \frac{a}{x})^x$
+
+\subsection{Ableitungswert an lokalen Extremstellen}
+Voraussetzung: $x_0 \in I$ ist lokales Extremum von $f$, $f$ ist diffbar in $x_0$ und $x_0$ ist innerer Punkt von $I$. Dann gilt: $f'(x_0) = 0$.
+
+\subsection{Mittelwertsatz}
+Voraussetzung: $f \in C([a,b])$ und $f$ sei auf $(a,b)$ diffbar. Dann gilt: 
+\begin{align*}
+    \exists \xi
+\end{align*}
 
 \end{document}
