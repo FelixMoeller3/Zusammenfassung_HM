@@ -495,4 +495,50 @@ $\overline{U_\varepsilon(x_0)} \coloneqq \{ x \in \mathbb{R}^n: |x-x_0| \leq \va
     \item $A$ heißt \underline{abgeschlossen} $\Leftrightarrow \mathbb{R}^n \setminus A$ ist offen
     \item $A$ heißt \underline{kompakt} $\Leftrightarrow A$ ist beschränkt und abgeschlossen 
 \end{enumerate}
+
+\section{Konvergenz im $\mathbb{R}^n$}
+Eine Folge $(a^{(k)})$ heißt konvergent $\Leftrightarrow \exists a \in \mathbb{R}^n: \lVert a^{(k)} - a \rVert \to 0 \text{ } (k \to \infty)$
+Ist $a=(a_1, \ldots, a_n) \in \mathbb{R}^n)$, so gilt: $a^{(k)} \to a \text{ } (k \to \infty) \Leftrightarrow \forall j \in \{ 1, \ldots, n\}:$
+$a_j^{(k)} \to a_j \text{ } (k \to \infty)$ Konvergenz im $\mathbb{R}^n$ ist also gleichbedeutend mit \underline{koordinatenweiser Konvergenz}.
+Sonst vieles wie in HM1 (Bolzano-Weierstra0, Cauchy-Kriterium,...)
+
+\section{Grenzwerte bei Funktionen, Stetigkeit}
+Definition: f heißt in $x_0 \in D \text{ stetig }: \Leftrightarrow$ Für jede Folge $(x^{(k)})$ in $D$ mit $x^{(k)} \to x_0$ gilt: 
+$f(x^{(k)}) \to f(x_0)$ \\
+\begin{align*}
+    f \text{ ist auf } D \text{ stetig } \Leftrightarrow f \text{ ist in jedem } x \in D \text{ stetig }
+\end{align*}
+Sonst vieles wie in HM1($C(D,\mathbb{R}^m)$ ist ein Vektorraum, Verkettung stetiger Funktionen ist stetig usw.) \\
+Wichtig: Ist eine Funktion $f: \mathbb{R}^n \to \mathbb{R}^m$ linear, so ist sie stetig.
+
+\section{Analysis in $\mathbb{C}$}
+Konvergenz von \underline{Folgen}: Es sei $(z_n)$ eine Folge in $\mathbb{C}$ und $z_0 \in \mathbb{C}$. Dann gilt: 
+$z_n \to z_0 \Leftrightarrow \lvert z_n - z_0 \rvert \to 0 \Leftrightarrow \text{Re}(z_n) \to \text{Re}(z_0) 
+\text{ und Im}(z_n) \to \text{Im}(z_0)$ \\
+Definitionen und Sätze über \underline{Reihen} wie in HM1 für Reihen in $\mathbb{R}$ (bis auf die Sätze, in denen die Anordnung auf $\mathbb{R}$
+eine Rolle spielt (Monotoniekriterium, Leibnizkriterium)). \underline{Potenzreihen} wie in HM1 für reelle Reihen. 
+
+\subsection{Komplexe Fourierreihen}
+Definition Komplexes Integral:
+Sei $f(x)=u(x) + iv(x)$. Sind $u,v \in R([a,b],\mathbb{R}$, so schreiben wir $f \in R([a,b],\mathbb{C})$ und definieren
+\begin{align*}
+    \int \limits_a^b f(x) dx \coloneqq \int \limits_a^b u(x) dx + i \int \limits_a^b v(x) dx
+\end{align*}
+
+Definition: Sei $f \in R([-\pi,\pi],\mathbb{C})$. Dann heißen die Zahlen $c_n \coloneqq \frac{1}{2\pi} \int \limits_{-\pi}^{\pi} f(x) e^{-inx} dx$
+die \underline{komplexen Fourierkoeffizienten} (FK) von $f$ und $\sum \limits_{n= - \infty}^{\infty} c_n e^{inx}$ heißt
+die komplexe Fourierreihe (FR). Schreibweise: $f \sim \sum \limits_{n=- \infty}^{\infty} c_n e^{inx}$ \\
+Bemerkung: Ist $f \in R([-\pi, \pi], \mathbb{R}) \text{ und } x \in \mathbb{R}$, so gilt: \\
+Die komplexe Fourierreihe konvergiert in $x \Leftrightarrow$ die reelle Fourierreihe konvergiert in $x$.
+
+\section{Differentialrechnung im $\mathbb{R}^n$ (reelwertige Funktionen)}
+Definition:
+\begin{enumerate}
+    \item $f$ heißt in $x_0$ partiell differenzierbar (pdb) nach $x_i$: $\Leftrightarrow$
+    Es existiert 
+    \begin{align*}
+        f_{x_i}(x_0) \coloneqq \frac{\partial f}{\partial x_i}(x_0) \coloneqq \lim \limits_{t \to 0} \frac{f(x_0 + te_i) - f(x_0)}{t} \in \mathbb{R}.
+    \end{align*}
+    In dem Fall heißt $f_{x_i}(x_0)$ die \underline{partielle Ableitung von $f$ in $x_0$ nach $x$.}
+\end{enumerate}
 \end{document}
