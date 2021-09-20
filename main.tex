@@ -4,6 +4,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{mathtools}
+\usepackage{hyperref}
 \title{Höhere Mathematik für die Fachrichtung Informatik - Zusammenfassung}
 \author{Felix Möller}
 \date{August 2021}
@@ -540,5 +541,160 @@ Definition:
         f_{x_i}(x_0) \coloneqq \frac{\partial f}{\partial x_i}(x_0) \coloneqq \lim \limits_{t \to 0} \frac{f(x_0 + te_i) - f(x_0)}{t} \in \mathbb{R}.
     \end{align*}
     In dem Fall heißt $f_{x_i}(x_0)$ die \underline{partielle Ableitung von $f$ in $x_0$ nach $x$.}
+    \item $f$ heißt in $x_0 \in D$ pdb $\Leftrightarrow$ $f$ ist in $x_0$ pdb nach allen Variablen $x_1,\ldots,x_n$.
+    I.d.F. heißt der Vektor
+    \begin{align*}
+        \text{grad} f(x_0) \coloneqq (f_{x_1}(x_0),\ldots,f_{x_n}(x_0))
+    \end{align*}
+    der \underline{Gradient von $f$ in $x_0$}
+    \item Es sei $i \in \{1,\ldots,n\}$ und $f_{x_i}$ sei auf $D$ vorhanden. Also haben wir die partielle Ableitung von $f$ nach $x_i: f_{x_i}: D \to \mathbb{R}$.
+    Es sei $x_0 \in D$ und $j \in \{1, \ldots,n \}$. Ist $f_{x_i}$ pdb nach $x_j$, so heißt
+    \begin{align*}
+        f_{x_ix_j}(x_0) \coloneqq \frac{\partial^2 f}{\partial x_j \partial x_i} (f_{x_i})_{x_j}(x_0)
+    \end{align*}
+    \underline{die partielle Ableitung 2. Ordnung von $f$ nach $x_i$ und $x_j$}
 \end{enumerate}
+
+\subsection{Satz von Schwartz}
+\label{sec: Schwartz}
+Es sei $m \in \mathbb{N}$ und $f \in C^m(D,\mathbb{R})$. Dann ist jede partielle Ableitung von $f$ der Ordnung $leq m$
+unabhängig von der Reihenfolge der Differentiation.
+
+\subsection{Differenzierbarkeit}
+Definition: $f$ heißt \underline{in $x_0 \in D$ differenzierbar} (db): $\Leftrightarrow$
+\begin{align*}
+    \exists a \in \mathbb{R}^n: \lim \limits_{h \to 0} \frac{f(x_0+h) -f(x_0) - a\cdot h}{\lVert h \rVert} = 0 \\
+    \Leftrightarrow \exists a \in \mathbb{R}^n : \lim \limits_{x \to x_0} \frac{f(x) -f(x_0) - a\cdot (x-x_0)}{\lVert x-x_0 \rVert} = 0
+\end{align*}
+\begin{enumerate}[a)]
+    \item Ist $f$ in $x_0$ db, so ist $f$ in $x_0$ stetig und $f$ ist in $x_0$ pdb
+    \item Ist $f$ in $x_0$ db, so ist der Vektor $a$ in obiger Definition eindeutig bestimmt un $a=\text{grad}f(x_0)$ I.d.F. gilt:
+    \begin{align*}
+        f'(x_0) \coloneqq a = \text{grad}f(x_0)
+    \end{align*}
+    \item Es sei $f$ auf $D$ pdb und $f_{x_1},\ldots,f_{x_n}$ seien in $x_0 \in D$ stetig. Dann ist $f$ in $x_0$ db.
+\end{enumerate}
+
+\subsection{Kettenregel}
+Sei $I \subseteq \mathbb{R}$ ein Intervall, $g: I \to \mathbb{R}^n$ db in $f_0 \in I, g(I) \subseteq D$ und $f$ sei in $x_0 \coloneqq g(t_0)$ db. 
+Dann ist $f \circ g: I \to \mathbb{R}$ db in $t_0$ und $(f \circ g)' (t_0) = f'(g(t_0)) \cdot g'(t_0)$, wobei hier das (euklidische) Skalarprodukt gemeint ist.
+
+\subsection{Mittelwertsatz}
+Es sei $f D \to \mathbb{R}$ auf $D$ differenzierbar, es seien $a,b \in D$ und $S[a,b] \subseteq D$. Dann existiert ein $\xi \in S[a,b]$ mit $f(b) - f(a) = f'(\xi) \cdot (b-a)$
+
+\subsection{Richtungen}
+\begin{enumerate}[a)]
+    \item Es sei $a \in \mathbb{R}^n$. Ist $\lVert a \rvert = 1,$ so heißt $a$ \underline{ein(e) Richtung(svektor)}
+    \item Sei $x_0 \in D$ und $a \in \mathbb{R}^n$ eine Richtung. $f$ heißt \underline{in $x_0$ in Richtung $a$ differenzierbar} $\Leftrightarrow$ Es existiert der Grenzwert
+    \begin{align*}
+        \frac{\partial f}{\partial a}(x_0) \coloneqq \lim \limits_{t \to 0} \frac{f(x_0 + ta) -f(x_0)}{t} \in \mathbb{R}.
+    \end{align*}
+    I.d.F. heißt $\frac{\partial f}{\partial a}(x_0)$ die \underline{Richtungsableitung von $f$ in $x_0$ in Richtung $a$}.
+    \item Ist $f$ in $x_0 \in D$ db und $a \in \mathbb{R}^n$ eine Richtung, so existiert $\frac{\partial f}{\partial a}(x_0)$ und 
+    $\frac{\partial f}{\partial a}(x_0) = a \cdot \text{grad}f(x_0)$
+\end{enumerate}
+
+\subsection{Hesse-Matrix}
+Es sei $f \in C^2(D,\mathbb{R})$ und $x_= \in D$. Die Matrix 
+\begin{align*}
+    H_f(x_0) \coloneqq \begin{pmatrix} f{x_1x_1}(x_0) & \ldots & f{x_1x_n}(x_0) \\ \vdots & & \vdots \\ f{x_nx_1}(x_0) & \ldots & f{x_nx_n}(x_0)\end{pmatrix}
+\end{align*}
+heißt \underline{Hesse-Matrix von $f$ in $x_0$}. Sie ist nach dem \hyperref[sec: Schwartz]{Satz von Schwartz} symmetrisch.
+
+\subsection{Satz von Taylor}
+Sei $f \in C^2(D,\mathbb{R}), x_0 \in D, h \in \mathbb{R}^n$ und $S[x_0,x_0+h] \subseteq D$. Dann existiert $\xi \in S[x_0,x_0+h]$ mit
+\begin{align*}
+    f(x_0+h) = f(x_0) + \text{ grad}f(x_0) \cdot h + \frac{1}{2} H_f(\xi) \cdot h
+\end{align*}
+
+\subsection{Definitheit}
+
+Definition: Sei $A \in \mathbb{R}^{n \times n}$ symmetrisch. $A$ heißt
+\begin{enumerate} [a)]
+    \item positiv definit $\Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\} (Ax) \cdot x > 0$
+    \item negativ definit $ \Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\} (Ax) \cdot x < 0$
+    \item indefinit $\Leftrightarrow \exists u,v \in \mathbb{R}^n: (Au) \cdot u > 0$ und $(Av) \cdot v < 0$
+\end{enumerate}
+\vspace{0.5cm}
+
+Kriterien für Definitheit:
+\begin{enumerate} [a)]
+    \item \begin{enumerate} [i)]
+        \item $A$ ist positiv definit $\Leftrightarrow$ alle EW von $A$ sind $> 0$
+        \item $A$ ist negativ definit $\Leftrightarrow$ alle EQ von $A$ sind $< 0$
+        \item $A$ ist indefinit $\Leftrightarrow$ es gibt EW die $> 0$ und welche, die $< 0$ sind
+    \end{enumerate}
+    \item Sei $n=2, A = \begin{pmatrix} \alpha & \beta \\ \beta & \gamma\end{pmatrix}$
+    \begin{enumerate} [i)]
+        \item A positiv definit $\Leftrightarrow \alpha > 0, \text{ det } A > 0$
+        \item A negativ definit $\Leftrightarrow \alpha < 0, \text{ det } A < 0$
+        \item A ist indefinit $\Leftrightarrow \text{det } A < 0$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Lokale Extrema}
+\begin{enumerate} [a)]
+    \item Ist $f$ in $x_0 \in D$ pdb und hat $f$ in $x_0$ ein lokales Extremum, so ist $\text{grad}f(x_0) = 0.$
+    \item Ist $f \in C^2(D,\mathbb{R}), x_0 \in D$ und $\text{grad}f(x_0) = 0$, so gilt:
+    \begin{enumerate} [i)]
+        \item Ist $H_f(x_0)$ positiv definit, so hat $f$ in $x_0$ ein lokales Minimum
+        \item Ist $H_f(x_0)$ negativ definit, so hat $f$ in $x_0$ ein lokales Maximum
+        \item Ist $H_f(x_0)$ indefinit, so hat $f$ in $x_0$ kein lokales Extremum
+    \end{enumerate}
+\end{enumerate}
+\underline{Problem:} Überprüfe Menge auf Extrema
+\underline{Lösung:} 
+\begin{enumerate}
+    \item Überprüfe, ob Menge überhaupt Extrempunkte haben kann/muss ($\widehat{=}$ dass sie kompakt ist)
+    \item Überprüfe das innere der Menge auf Extrema
+    \item Überprüfe Ränder der Menge auf Extram, sofern diese vorhanden sind
+\end{enumerate}
+
+\section{Differentialrechnung im $\mathbb{R}^n$ (vektorwertige Funktionen)}
+\underline{Definition:}
+\begin{enumerate}
+    \item Es sei $x_0 \in D$. $f$ heißt in $x_0$ partiell differenzierbar $\Leftrightarrow$ Alle $f_j$ sind in $x_0$ pdb. In diesem Fall heißt
+    \begin{align*}
+        \frac{\partial f}{\partial x}(x_0) \coloneqq \frac{\partial (f_1, \ldots, f_n)}{\partial (x_1, \ldots, x_n)} (x_0) \coloneqq J_f(x_0) \coloneqq
+        \begin{pmatrix} \frac{\partial f_1}{\partial x_1}(x_0) & \ldots & \frac{\partial f_1}{\partial x_n}(x_0) \\ \vdots & & \vdots \\ 
+        \frac{\partial f_n}{\partial x_1}(x_0) & \ldots & \frac{\partial f_n}{\partial x_n}(x_0)\end{pmatrix}
+    \end{align*}
+    die \underline{Jacobi-} oder \underline{Fundamentalmatrix von $f$} in $x_0$. In der Jacobimatrix stehen zeilenweise die Gradienten der Koordinatenfunktionen!
+    \item $f$ heißt in $x_0 \in D$ db: $\Leftrightarrow$ Es existiert eine $m \times n$-Matrix $A$ mit: 
+    \begin{align*}
+        \lim \limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{\lVert h \rVert} = 0
+    \end{align*}
+\end{enumerate}
+
+\subsection{Ableitungsbegriff und Folgerungen}
+\begin{enumerate} [a)]
+    \item $f$ ist in $x_0$ db $\Leftrightarrow$ Alle $f_j$ sind in $x_0$ db. I.d.F. gilt:
+    \begin{enumerate} [i)]
+        \item $f$ ist stetig in $x_0$
+        \item $f$ ist in $x_0$ pdb
+    \end{enumerate}
+    \item Ist $f$ in $x_0$ db, so heißt $f'(x_0) \coloneqq J_f(x_0)$ die \underline{Ableitung von $f$ in $x_0$.}
+    \item Sind alle partiellen Ableitungen $\frac{\partial f_i}{\partial x_k}$ vorhanden auf $D$ und in $x_0$ stetig, so ist $f$ in $x_0$ db.
+\end{enumerate}
+
+\subsection{Kettenregel}
+Sei $f: D \to \mathbb{R}^m$ in $x_0 \in D$ db und $\Tilde{D} \subseteq \mathbb{R}^m$, offen $f(D) \subseteq \Tilde{D}$ und $g: \Tilde{D} \to \mathbb{R}^p$ db
+in $y_0 \coloneqq f(x_0)$. Dann ist  $\phi \coloneqq g\circ f: D \to \mathbb{R}^p$ in $x_0$ db und 
+\begin{align*}
+    \phi'(x_0) = (g \circ f)'(x_0) = \underbrace{g'(f(x_0)) \cdot f'(x_0)}_{\text{Matrizenprodukt}}
+\end{align*}
+
+\subsection{Implizit definierte Funktionen}
+\underline{Variante 1:} Seien $n=2, f\in C^1(D, \mathbb{R}),(x_0,y_0) \in D, f(x_0,y_0)=0$ und $f_y(x_0,y_0) \neq 0$. Dann existieren $\delta,\eta > 0$ und genau eine
+stetig differenzierbare Funktion $g: (x_0- \delta x_0 + \delta) \to (y_0 - \eta, y_0 + \eta)$ mit $g(x_0)=y_0$
+und $\forall x \in (x_0- \delta x_0 + \delta): f(x,g(x))=0$
+
+\underline{Variante 2:}
+Es sei $(x_=,y_0) \in D, f(x_0,y_0) = 0$ und det $\frac{\partial f}{\partial y}(x_0,y_0) \neq 0$ (wichtig!). Dann existieren $\delta,\eta > 0$ mit folgenden
+Eigenschaften:
+\begin{enumerate} [a)]
+    \item $U_\delta (x_0) \times U_\eta (y_0) \subseteq D$
+    \item $\forall x \in U_\delta(x_0)$
+\end{enumerate}
+
 \end{document}
