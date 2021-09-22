@@ -685,16 +685,248 @@ in $y_0 \coloneqq f(x_0)$. Dann ist  $\phi \coloneqq g\circ f: D \to \mathbb{R}^
 \end{align*}
 
 \subsection{Implizit definierte Funktionen}
-\underline{Variante 1:} Seien $n=2, f\in C^1(D, \mathbb{R}),(x_0,y_0) \in D, f(x_0,y_0)=0$ und $f_y(x_0,y_0) \neq 0$. Dann existieren $\delta,\eta > 0$ und genau eine
+\underline{Spezialfall:} Seien $n=2, f\in C^1(D, \mathbb{R}),(x_0,y_0) \in D, f(x_0,y_0)=0$ und $f_y(x_0,y_0) \neq 0$. Dann existieren $\delta,\eta > 0$ und genau eine
 stetig differenzierbare Funktion $g: (x_0- \delta x_0 + \delta) \to (y_0 - \eta, y_0 + \eta)$ mit $g(x_0)=y_0$
-und $\forall x \in (x_0- \delta x_0 + \delta): f(x,g(x))=0$
-
-\underline{Variante 2:}
+und $\forall x \in (x_0- \delta x_0 + \delta): f(x,g(x))=0$ \\
+\underline{Satz über implizit definierte Funktionen} \\
 Es sei $(x_=,y_0) \in D, f(x_0,y_0) = 0$ und det $\frac{\partial f}{\partial y}(x_0,y_0) \neq 0$ (wichtig!). Dann existieren $\delta,\eta > 0$ mit folgenden
 Eigenschaften:
 \begin{enumerate} [a)]
     \item $U_\delta (x_0) \times U_\eta (y_0) \subseteq D$
-    \item $\forall x \in U_\delta(x_0)$
+    \item $\forall x \in U_\delta(x_0) \exists_1 y \eqqcolon g(x) \in U_\eta(y_0): f(x,y)=0$
+    \item $g \in C^1(U_\delta(x_0),\mathbb{R}^p)$
+    \item $\forall x \in U_\delta(x_0): \text{det} \frac{\partial f}{\partial y}(x,g(x)) \neq 0$
+    \item $\forall x \in U_\delta(x_0): g'(x)=-(\frac{\partial f}{\partial y}(x,g(x))^{-1} \cdot (\frac{\partial f}{\partial x}(x,g(x))$
 \end{enumerate}
+
+\subsection{Umkehrsatz}
+Es sei $D \subseteq \mathbb{R}^n$ offen, $f \in C^1(D, \mathbb{R}^n)$ und $x_0 \in D$. Ist $\text{det}f'(x_0) \neq 0$, so existiert ein
+$\delta > 0$ mit:
+\begin{enumerate} [a)]
+    \item $U_\delta(x_0) \subseteq D$ und $f(U_\delta(x_0))$ ist offen
+    \item $f$ ist auf $U_\delta(x_0)$ injektiv
+    \item $f^{-1}: f(U_\delta(x_0)) \to U_\delta(x_0)$ ist in $C^1(f(U_\delta(x_0)),\mathbb{R}^n), \text{det}f'(x) \neq 0 (x \in U_\delta(x_0))$ und
+    \begin{align*}
+        (f^{-1})'(y) = (f'(f^{-1}(y)))^{-1} \hspace{0.5cm} (y \in f(U_\delta(x_0))
+    \end{align*}
+\end{enumerate}
+
+\section{Integration im $\mathbb{R}^n$}
+\subsection{Satz von Fubini}
+Es seien $p,q \in \mathbb{N}, n=p+q$. Es sei $I_1$ ein kompaktes Intervall im $\mathbb{R}^p$, $I_2$ sei ein kompaktes Intervall im $\mathbb{R}^q$,
+es sei $I \coloneqq I_1 \times I_2 \subseteq \mathbb{R}^n$ und $f \in R(I)$.
+\begin{enumerate} [a)]
+    \item Für jedes feste $y \in I_2$ ist die Funktion $x \mapsto f(x,y)$ integrierbar über  $I_1$ und es sei 
+    $g(y) \coloneqq \int_{I_1} f(x,y) dx$. Dann gilt $g \in R(I_2)$ und
+    \begin{align*}
+        \int_I f(x,y) d(x,y) = \int_{I_2} g(y) dy = \int_{I_2} (\int_{I_1} f(x,y) dx) dy
+    \end{align*}
+    \item Für jedes feste $x \in I_1$ ist die Funktion $y \mapsto f(x,y)$ integrierbar über  $I_2$ und es sei 
+    $g(x) \coloneqq \int_{I_2} f(x,y) dy$. Dann gilt $g \in R(I_1)$ und
+    \begin{align*}
+        \int_I f(x,y) d(x,y) = \int_{I_1} g(x) dx = \int_{I_1} (\int_{I_2} f(x,y) dy) dx
+    \end{align*}
+\end{enumerate}
+\underline{Folgerung:} Es sei $I = [a_1,b_1] \times \ldots \times [a_n,b_n]$ und $f \in C(I)$. Dann ist
+\begin{align*}
+    \int_I f(x) dx = \int_I f(x_1, \ldots, x_n) d(x_1, \ldots, x_n) = \int \limits_{a_1}^{b_1} (\ldots \int \limits_{a_{n-1}}^{b_{n-1}}(\int \limits_{a_n}^{b_n}
+    f(x_1,\ldots,x_n)dx_n)dx_{n-1}\ldots) dx_1
+\end{align*}
+wobei die Reihenfolge der Integration \underline{beliebig vertauscht} werden kann.
+
+\subsection{Prinzip von Cavalieri}
+\label{sec: Cavalieri}
+\underline{Voraussetzung:} Es sei $B \subseteq \mathbb{R}^{n+1}$ messbar. Für Punkte im $\mathbb{R}^{n+1}$ schreiben wir $(x,z)$ mit $x \in \mathbb{R}^n$ und $z \in \mathbb{R}$. 
+Es seien $a,b \in \mathbb{R}$ so, dass $a \leq z \leq b \text{ } ((x,z) \in B)$. Für $z \in [a,b]$ sei 
+\begin{align*}
+    Q(z) \coloneqq \{ x \in \mathbb{R}^n: (x,z) \in B\}
+\end{align*}
+Weiter sei $Q(z)$ messbar für jedes $z \in [a,b]$. Dann ist $z \mapsto \lvert Q(z)\rvert$ integrierbar über $[a,b]$ und 
+\begin{align*}
+    \lvert B\rvert = \int \limits_a^b \lvert Q(z)\rvert dz
+\end{align*}
+\underline{Rotationskörper:} Sei $a < b, f \in R([a,b])$ und $f \geq 0$ auf $[a,b]$. Der Graph von $f$ rotiere z.B. um die $x$-Achse:
+\begin{align*}
+    B = \{ (x,y,z) \in \mathbb{R}^3: y^2+z^2 \leq f(x)^2\}
+\end{align*}
+Für $x \in [a,b]$ ist dann $Q(x) = \{ (y,z) \in \mathbb{R}^2: y^2+z^2\leq f(x)^2\}$. Also gilt: $\lvert Q(x) \rvert = \pi f(x)^2$ und somit $\lvert B \rvert = \pi \int \limits_a^b f(x)^2 dx$ \\
+\underline{Normalbereich bzgl. $x$-Achse:} \\
+Sei $a,b \in \mathbb{R}, a < b, f,g \in C([a,b])$ und $f \leq g$ auf $[a,b]$. Dann heißt die Menge
+\begin{align*}
+    B \coloneqq \{ (x,y) \in \mathbb{R}^2: x \in [a,b], f(x) \leq y \leq g(x)\}
+\end{align*}
+ein \underline{Normalbereich bzgl. der $x$-Achse.} Es gilt:
+\begin{align*}
+    \int_B h(x,y) d(x,y) = \int_I h_B(x,y) d(x,y) = \int \limits_a^b (\int \limits_{f(x)}^{g(x)} h(x,y) dy)dx
+\end{align*}
+\underline{Normalbereich bzgl. der $y$-Achse:} \\
+Seien $a,b,f$ und $g$ wie in obiger Definition. Dann heißt die Menge 
+\begin{align*}
+    B \coloneqq \{ (x,y) \in \mathbb{R}^3: y \in [a,b], f(y) \leq x \leq g(y)\}
+\end{align*}
+ein \underline{Normalbereich bzgl. der $y$-Achse}. Wie oben gilt:
+\begin{align*}
+    \int_B h(x,y) d(x,y) = \int \limits_a^b (\int \limits_{f(y)}^{g(y)} h(x,y) dx)dy
+\end{align*}
+
+\subsection{Substitutionsregel}
+\label{sec: Sub}
+Es sei $G \subseteq \mathbb{R}^n$ offen, $g \in C^1(G,\mathbb{R}^n)$ und $B \subseteq G$ kompakt und messbar. Weiter sei $g$ auf dem Inneren $B^\circ$ von $B$ injektiv
+und det$g'(y) \neq 0 \text{ } (y \in B^\circ)$. Ist dann $A \coloneqq g(B)$ und $f \in C(A,\mathbb{R)}$, so ist $A$ kompakt und messbar und es gilt:
+\begin{align*}
+    \int_A f(x) dx = \int_B f(g(y)) \lvert \text{det} g'(y)\rvert dy
+\end{align*}
+\underline{Polarkoordinaten (n=2):} \\
+$x = r\cos \varphi, y = r\sin \varphi \text{ } (r = \lVert(x,y)\rVert = \sqrt{x^2 + y^2})$
+\begin{align*}
+    g(r,\varphi) \coloneqq (r\cos \varphi, r\sin \varphi), \det g'(r,\varphi) = r \text{ } ((r,\varphi) \in G \coloneqq \mathbb{R}^2)
+\end{align*}
+(Typische Menge: $A=\{ (x,y) \in \mathbb{R}^2: 0 \leq x^2+y^2\leq R^2\} (R \in \mathbb{R})$) \\
+Betrachte $0 \leq \varphi_1 < \varphi_2 \leq 2\pi, 0 \leq R_1 < R_2$
+\begin{align*}
+    A \coloneqq \{ (r\cos \varphi, r\sin \varphi): \varphi \in [\varphi_1,\varphi_2], r \in [R_1,R_2]\}
+\end{align*}
+Mit $B \coloneqq [R_1,R_2] \times [\varphi_1, \varphi_2]$ ist $A = g(B)$. Auf $B^\circ = (R_1,R_2) \times (\varphi_1,\varphi_2)$ ist $g$ injektiv und $\det g' \neq 0$.
+Ist nun $f \in C(A,\mathbb{R}$, so gilt: 
+\begin{align*}
+    \int_A f(x,y) d(x,y) = \int_B f(r \cos \varphi,r \sin \varphi) \cdot \underbrace{r}_{= \lvert \det g'(r,\varphi)\rvert} d(r, \varphi) \stackrel{\text{Fubini}}{=}
+    \int \limits_{\varphi_1}^{\varphi_2} (\int \limits_{R_1}^{R_2} f(r \cos \varphi, r \sin \varphi)r dr) d\varphi
+\end{align*}
+\underline{Zylinderkoordinaten (n=3):} \\
+\begin{align*}
+    \begin{rcases} 
+        x = r \cos \varphi \\
+        y = r \sin \varphi \\
+        z = z \\
+    \end{rcases} g(r,\varphi,z) \coloneqq (r \cos \varphi,r \sin \varphi, z) \det g'(r,\varphi,z) = r
+\end{align*}
+(Typische Menge: $ \{ (x,y,z) \in \mathbb{R}^3: x^2+y^2 \leq R^2, 0 \leq z \leq h\} \text{ } (R,h \in \mathbb{R}_+)$)\\
+Es seien $A,B \subseteq \mathbb{R}^3$ wie bei der \hyperref[sec: Sub]{Substitutionsregel} und $f \in C(A,\mathbb{R})$. Dann gilt: 
+\begin{align*}
+    \int_A f(x,y,z) d(x,y,z) = \int_B f(r \cos \varphi, r \sin \varphi, z) \cdot r d(r,\varphi,z)
+\end{align*}
+\underline{Kugelkoordinaten (n=3):} \\
+Für $\varphi = [0,2\pi], \vartheta \in [-\frac{\pi}{2}, \frac{\pi}{2}], r=\lVert (x,y,z)\rVert = \sqrt{x^2+y^2+z^2}, x= r\cos \varphi \cos \vartheta, y=r \sin \varphi \cos \vartheta$,
+$z=r \sin \vartheta$,
+\begin{align*}
+    g(r,\varphi,\vartheta) \coloneqq (r\cos \varphi \cos \varphi, r \sin \varphi \cos \vartheta, r \sin \vartheta), \lvert \det g'(r,\varphi,\vartheta)\rvert = r^2 \cos \vartheta
+\end{align*}
+Sind $A,B \subseteq \mathbb{R}^3$ wie beim \hyperref[sec: Cavalieri]{Prinzip von Cavalieri} (also $A=g(B)$), so gilt für $f \in C(A,\mathbb{R})$:
+\begin{align*}
+    \int_A f(x,y,z) d(x,y,z) = \int_B f(g(r,\varphi,\vartheta)) \cdot r^2 \cos \vartheta d(r,\varphi,\vartheta)
+\end{align*}
+Typische Menge: $\{ (x,y,z) \in \mathbb{R}^3: x,y,z \geq 0, x^2+y^2+z^2 \leq 1\}$
+
+\section{Spezielle Differentialgleichungen 1. Ordnung}
+\underline{Definition:} Sei $\emptyset \neq D \subseteq \mathbb{R}^3$. Die Gleichung
+\begin{align*}
+    f(x,y(x),y'(x)) = 0
+\end{align*}
+heißt \underline{Differentialgleichung (Dgl) 1. Ordnung}. Sind $x_0,y_0 \in \mathbb{R}$, so heißt
+\begin{align*}
+    (A) \begin{cases}
+    f(x,y(x),y'(x)) = 0 \\
+    y(x_0) = y_0
+    \end{cases}
+\end{align*}
+ein \underline{Anfangswertproblem (Awp)}.
+
+\subsection{Dgl mit getrennten Veränderlichen}
+Es seien $I_1, I_2 \subseteq \mathbb{R}$ Intervalle, es seien $f \in C(I_1,\mathbb{R})$ und $g \in C(I_2,\mathbb{R})$. Die Dgl
+\begin{equation} \label{dgl_getrennt}
+    y'(x) = f(x)g(y(x))
+\end{equation}
+heißt \underline{Dgl mit getrennten Veränderlichen}. Ist $g(y) \neq 0 \text{ } (y \in I_2)$, so erhält man von (\ref{dgl_getrennt}), indem man die Gleichung
+$\int \frac{dy}{g(y)} = \int f(x) dx + c$ nach $y$ auflöst.
+\underline{Merkregel:}
+\begin{align*}
+    y' = f(x)g(y) \Rightarrow \frac{dy}{dx} = f(x)g(y) \Rightarrow \frac{dy}{g(y)} = f(x) dx \Rightarrow \int \frac{dy}{g(y)} = \int f(x) dx + c
+\end{align*}
+Lösung des Awp: In die vorhandene Gleichung $x_0$ einsetzen und nach $c$ auflösen.
+
+\subsection{Lineare Dgls}
+\begin{equation} \label{ldgl_eq}
+    y'(x) = \alpha(x) y(x) + s(x) 
+\end{equation}
+heißt \underline{lineare Dgl} und $s$ heißt \underline{Störfunktion}. $y'(x)=\alpha(x)y(x)$ heißt die zu (\ref{ldgl_eq}) gehörige \underline{homogene Gleichung}. \\
+\underline{Lösen von Linearen Dgls:} \\
+Sei $B$ eine Stammfunktion von $\alpha$ auf $I$
+\begin{enumerate} [a)]
+    \item Sei $y: I \to \mathbb{R}$ eine Funktion. Dann gilt:
+    \begin{enumerate} [i)]
+        \item $y$ ist eine Lösung der homogenen Gleichung auf $I \Leftrightarrow \exists c \in \mathbb{R}: y(x) = ce^{\beta(x)}$
+        \item Sei $y_p$ eine spezielle Lösung von (\ref{ldgl_eq}) auf $I$. Dann gilt: $y ist eine$ Lösung von (\ref{ldgl_eq}) auf $I$
+        $\Leftrightarrow \exists c \in \mathbb{R}: y(x) = y_p(x) + ce^{\beta(x)}$
+    \end{enumerate}
+    \item Variation der Konstanten: Der Ansatz 
+    \begin{align*}
+        y_p(x) = c(x)e^{\beta(x)}
+    \end{align*}
+    mit $c(x)$ unbekannt führt auf eine Lösung.
+\end{enumerate}
+\underline{Vorgehen:} \\
+Gegeben: Gleichung $y'(x) = \alpha(x)y(x)$
+\begin{enumerate}
+    \item Lösung der homogenen Gleichung: Setze $y(x) = ce^{\beta(x)}$, wobei $\beta$ Stammfunktion von $\alpha$ ist.
+    \item Lösung der inhomogenen Gleichung: \\
+    Ansatz: $y_p'(x) = c'(x)e^{\beta(x)} + c(x) e^{\beta(x)}\beta'(x) \stackrel{\text{!}}{=} y_p(x)\alpha(x) + s(x)$ \\
+    Löse diese Gleichung nach $c(x)$ auf, dann $y_p(x) = c(x)e^{\beta(x)}$. Allgemeine Lösung: $y(x)=ce^{\beta(x)} + y_p(x)$ \\
+    Awp lösen wie immer
+\end{enumerate}
+
+\subsection{Bernoulli- und Riccatti-Differentialgleichungen}
+\begin{align*}
+    y'(x) + g(x)y(x) + h(x)(y(x))^\alpha = 0
+\end{align*}
+ist eine \underline{Bernoulli Dgl}. \\
+Lösung: Sei $\alpha \in \mathbb{R} \setminus \{0,1\}$. Betrachte Transformation $z(x) = (y(x))^{1 - \alpha}$:
+\begin{align*}
+    z'(x) = - (1-\alpha)g(x)z(x) -(1-\alpha)h(x)
+\end{align*}
+Löse die lineare DGL für $z$. Ist $z$ eine Lösung der Dgl, dann setze $y(x) \coloneqq z(x)^{\frac{1}{1 - \alpha}}$ für $x$ aus $I_1 \subseteq I$,
+für das $(z(x))^{\frac{1}{1- \alpha}}$ eine differenzierbare Funktion liefert, Dann ist $y$ eine Lösung auf $I_1$.
+\begin{equation} \label{eq_ricatti}
+    y'(x) + g(x)y(x) + h(x)y^2(x) = k(x)
+\end{equation}
+heißt \underline{Riccatische Dgl}. Sind $y_1,y_2$ Lösungen von (\ref{eq_ricatti}) auf $I_1 \subseteq I$, so gilt für $u \coloneqq y_1 - y_2$:
+\begin{align*}
+    u'(x) = -(g(x) + 2h(x)y_2(x))u(x) - h(x)u^2(x)
+\end{align*}
+Fazit: Ist eine Lösung $u \neq 0$ von (\ref{eq_ricatti}) bekannt, so liefern Lösungen $u \neq 0$ obiger Bernoulli-Dgl für $u$ weitere Lösungen der Form $y_2(x) + u(x)$.
+
+\subsection{Lineare Systeme mit konstanten Koeffizienten}
+\underline{Definition:}
+\begin{align*}
+    y'(x) = Ay(x) + b(x)
+\end{align*}
+heißt das \underline{homogene} (wenn $b(x) = 0$) bzw. das \underline{inhomogene System} (wenn $b(x) \neq 0)$. \\
+\underline{Lösungsmethode:}
+\begin{enumerate}
+    \item Alle Eigenwerte (auch komplexe) bestimmen als Nullstellen des charakteristischen Polynoms.
+    \item Fasse in einer Menge $M$ alle reellen Eigenwerte und bei den komplexen Eigenwerten nur den Eigenwert selbst und \textbf{nicht} sein komplex Konjugiertes zusammen.
+    \item Bestimme eine Basis des Hauptraums für jedes Element der Menge $M$
+    \item Für jeden Basisvektor $v$ jedes Elements $\lambda_j$ aus $M$, setze:
+    \begin{align*}
+        y(x) \coloneqq e^{\lambda_jx} \cdot (v+\frac{x}{1!}(A-\lambda_jI)v+ \ldots + \frac{x^{k_j-1}}{(k_j-1)!}(A-\lambda_jI)^{k_j-1}v) \\
+        (k_j  \text{ entspricht der algebraischen Vielfachheit von }\lambda_j)
+    \end{align*}
+    Fall 1: Ist $\lambda_j$ reell, so ist $y(x)$ eine Lösung der Dgl auf $\mathbb{R}$ \\
+    Fall 2: Ist $\lambda_j$ komplex, so ist $y(x)$ auch komplex. Dann sind Real- und Imaginärteil von $y(x)$ jeweils linear unabhängige Lösungen der Dgl
+    \item Fasse alle $y(x)$ in einer Menge zusammen. Nun hat man das zur Dgl gehörige Fundamentalsystem.
+\end{enumerate}
+\underline{Awp Lösen:} Lgs lösen \\
+\underline{Inhomogene Gleichung lösen:} \\
+Ansatz: 
+\begin{align*}
+    y_p(x) = \underbrace{Y(x)}_{\text{Fundamentalmatrix}}c(x) 
+\end{align*}
+wobei $c$ noch unbekannt. Dann gilt: $y_p$ ist eine Lösung auf $I \Leftrightarrow c'(x)=(Y(x))^{-1}b(x)$. Bestimme $c(x)$ und erhalte damit $y_p$.
+Dann ist 
+\begin{align*}
+    y(x) = Y(x) \begin{pmatrix} c_1 \\ \vdots \\ c_n\end{pmatrix} + y_p(x)
+\end{align*}
+eine allgemeine Lösung
+
+\section{Lineare Dgl n-ter Ordnung mit konstanten Koeffizienten}
 
 \end{document}
