@@ -928,5 +928,60 @@ Dann ist
 eine allgemeine Lösung
 
 \section{Lineare Dgl n-ter Ordnung mit konstanten Koeffizienten}
+Sei 
+\begin{align*}
+    Ly \coloneqq y^{(n)} + a_{n-1}y^{(n-1)}+ \ldots + a_1y' + a_0y
+\end{align*}
+Die Dgl $Ly(x)=b(x)$ heißt lineare Dgl n-ter Ordnung mit konstanten Koeffizienten. \\
+Lösungsmethode für die homogene Gleichung ($Ly(x)=0$):
+\begin{enumerate}
+    \item $p(\lambda)=\lambda^n + a_{n-1}\lambda^{n-1} + \ldots + a_1\lambda + a_0$ heißt charakteristisches Polynom der homogenen Dgl.
+    Bestimme dessen Nullstellen.
+    \item Fasse alle reellen Nullstellen und alle komplexen ohne ihr komplex Konjugiertes in einer Menge $M$ zusammen.
+    \item FÜr jedes $\lambda_j$ aus $M$ mit Vielfachheit $k_j$: \\
+    Fall 1: Ist $\lambda_j$ reell, so sind
+    \begin{align*}
+        e^{\lambda_jx}, xe^{\lambda_jx}, \ldots, x^{k_j-1}e^{\lambda_jx}
+    \end{align*}
+    $k_j$ linear unabhängige Lösungen der Dgl. \\
+    Fall 2: $\lambda_j = \alpha+i\beta \in \mathbb{C} \setminus \mathbb{R}$. Dann sind
+    \begin{align*}
+        e^{\alpha x}\cos \beta x, \ldots, x^{kj-1}e^{\alpha x}\cos \beta x \\
+        e^{\alpha x}\sin \beta x, \ldots, x^{kj-1}e^{\alpha x}\sin \beta x
+    \end{align*}
+    $2k_j$ linear unabhängige Lösungen der Dgl
+    \item Führt man 3. für alle Elemente aus $M$ durch, so erhält man ein Fundamentalsystem zur Dgl.
+\end{enumerate}
+\underline{Lösung der inhomogenen Gleichung ($Ly(x)=b(x)$:} \\
+Seien $\gamma,\delta \in \mathbb{R}, m \in \mathbb{N}_0,q$ ein Polynom vom Grad m und $b$ von der Form $b(x)=q(x)e^{\gamma x}\cos(\delta x)$
+oder $b(x)=q(x)e^{\gamma x}\sin(\delta x)$. Sei $p$ das charakteristische Polynom von $Ly(x)=0$. \\
+Fall 1: $p(\gamma + i\delta) \neq 0$. Ansatz:
+\begin{align*}
+    y_p(x) \coloneqq (\widehat{q}(x)\cos(\delta x) + \Tilde{q}(x)\sin(\delta x))e^{\gamma x}
+\end{align*}
+Fall 2: $\gamma + i \delta$ ist eine $v$-fache Nullstelle von $p$. Ansatz:
+\begin{align*}
+    y_p(x) \coloneqq x^v(\widehat{q}(x)\cos(\delta x) + \Tilde{q}(x) \sin(\delta x))e^{\gamma x}
+\end{align*}
+$\widehat{q}$ und $\Tilde{q}$ haben dabei den gleichen Grad wie $q(x)$ oben. \\
+Die allgemeine Lösung ist also
+\begin{align*}
+    y(x) = c_1m_1 + \ldots + c_nm_n + y_p(x)
+\end{align*}
+für $m_1, \ldots, m_n$ aus dem Fundamentalsystem.
+
+\section{Fouriertransformation}
+\underline{Definition:} Eine Funktion heißt auf $[a,b]$ stückweise stetig/glatt $\Leftrightarrow$ Es gibt eine Zerlegung $t_0, \ldots, t_m \in [a,b]$,
+sodass $a=t_0 < t_1 < \ldots < t_m=b, \text{ } g \in C((t_{j-1},t_j)), j \in \{ 1, \ldots,m\}$ und es existieren
+\begin{enumerate}
+    \item $g(a+),g(b-),g(t_j\pm) \text{ } j \in \{ 1, \ldots, m-1\}$ (stückweise stetig)
+    \item $g'(t_j \pm), g'(a+),g'(b-)$ (stückweise glatt)
+\end{enumerate}
+Sei $g$ stückweise glatt. Dann:
+\begin{align*}
+    g'(x_0) \coloneqq \frac{1}{2} (g'(x_0-) + g'(x_0+))
+\end{align*}
+\underline{Definition:} 
+
 
 \end{document}
