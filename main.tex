@@ -1015,6 +1015,7 @@ Sei $f: \mathbb{R} \to \mathbb{C}$ stückweise glatt und aib. Dann gilt:
     \item $\widehat{\alpha f + \beta g} = \alpha \widehat{f} + \beta \widehat{g}$
     \item Es sei $V \coloneqq \{ f: \mathbb{R} \to \mathbb{C}: f \text{ ist stückweise stetig und absolut integrierbar}\}$. Für jedes $f \in V$ existiert die Fouriertransformierte
     \item Sei $f_h(t) \coloneqq f(t+h)$. Dann ist $f_h \in V$ und $\widehat{f_h}(s) = e^{ish} \widehat{f}(s) \text{ } (s \in \mathbb{R})$
+    \item Sei $f: \mathbb{R} \to \mathbb{C}$ stückweise glatt, stetig und aib. Weiter sei $f'$ aib. Dann ist $f' \in V$ und $\widehat{f'}(s) = is\widehat{f}(s)$
 \end{enumerate}
 
 \subsection{Faltungen}
@@ -1032,4 +1033,24 @@ die \underline{Faltung} von $f_1$ und $f_2$. \\
     \end{align*}
     \item $\lvert f_1*f_2(t)\rvert \leq \frac{1}{2\pi} \sup \limits_{x \in \mathbb{R}} \lvert f_1(x)\rvert \int \limits_{-\infty}^\infty \lvert f_2(x)\rvert dx \text{ } (t \in \mathbb{R})$
 \end{enumerate}
+
+\subsection{Schwartzraum}
+Eine Funktion $f \in C^\infty(\mathbb{R},\mathbb{C})$ heißt \underline{schnell fallend} $\Leftrightarrow \forall m,n \in \mathbb{N}_0: t \mapsto t^mf^{(n)}(t)$ ist beschränkt auf $\mathbb{R}$
+\begin{align*}
+    S \coloneqq \{ f:\mathbb{R} \to \mathbb{C}: f \text{ ist schnell fallend}\}
+\end{align*}
+heißt \underline{Schwartz-Raum}. \\
+\underline{Nützliches zu Funktionen des Schwartz-Raumes:}
+Seien $f,g \in S$ und $p$ ein Polynom. Dann:
+\begin{enumerate} [a)]
+    \item $f$ ist aib und $\lim \limits_{t \to \pm \infty} f(t) = 0$
+    \item $S$ ist ein Vektorraum $(\alpha f + \beta g \in S)$
+    \item $fg,pf,\overline{f},\cRe f,\cIm f,t \mapsto f(-t) \in S$
+    \item $\widehat{f} \in S$ und $f(t)= \int \limits_{-\infty}^\infty \widehat{f}(s)e^{ist}ds \text{ } (t \in \mathbb{R})$
+    \item $f^{(n)} \in S \text{ } (n \in \mathbb{N})$ und $\widehat{f^{(n)}}(s) = (is)^n \widehat{f}(s)$
+    \item $f*g \in S$ und $\widehat{f*g} = \widehat{f} \cdot \widehat{g}$
+    \item Für $h(t) \coloneqq e^{-\frac{t^2}{2}} \text{ } (t \in \mathbb{R})$ gilt: $h \in S$ und $\widehat{h}= \frac{1}{\sqrt{2\pi}}h$ auf $\mathbb{R}$
+\end{enumerate}
+Die Fouriertransformation $f \mapsto \widehat{f}$ ist ein Isomorphismus von $S$ nach $S$!
+
 \end{document}
