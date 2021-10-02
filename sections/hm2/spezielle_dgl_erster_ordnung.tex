@@ -1,0 +1,109 @@
+\section{Spezielle Differentialgleichungen 1. Ordnung}
+\underline{Definition:} Sei $\emptyset \neq D \subseteq \mathbb{R}^3$. Die Gleichung
+\begin{align*}
+    f(x,y(x),y'(x)) = 0
+\end{align*}
+heißt \underline{Differentialgleichung (Dgl) 1. Ordnung}. Sind $x_0,y_0 \in \mathbb{R}$, so heißt
+\begin{align*}
+    (A) \begin{cases}
+    f(x,y(x),y'(x)) = 0 \\
+    y(x_0) = y_0
+    \end{cases}
+\end{align*}
+ein \underline{Anfangswertproblem (Awp)}.
+
+\subsection{Dgl mit getrennten Veränderlichen}
+Es seien $I_1, I_2 \subseteq \mathbb{R}$ Intervalle, es seien $f \in C(I_1,\mathbb{R})$ und $g \in C(I_2,\mathbb{R})$. Die Dgl
+\begin{equation} \label{dgl_getrennt}
+    y'(x) = f(x)g(y(x))
+\end{equation}
+heißt \underline{Dgl mit getrennten Veränderlichen}. Ist $g(y) \neq 0 \text{ } (y \in I_2)$, so erhält man von (\ref{dgl_getrennt}), indem man die Gleichung
+$\int \frac{dy}{g(y)} = \int f(x) dx + c$ nach $y$ auflöst.
+\underline{Merkregel:}
+\begin{align*}
+    y' = f(x)g(y) \Rightarrow \frac{dy}{dx} = f(x)g(y) \Rightarrow \frac{dy}{g(y)} = f(x) dx \Rightarrow \int \frac{dy}{g(y)} = \int f(x) dx + c
+\end{align*}
+Lösung des Awp: In die vorhandene Gleichung $x_0$ einsetzen und nach $c$ auflösen.
+
+\subsection{Lineare Dgls}
+\begin{equation} \label{ldgl_eq}
+    y'(x) = \alpha(x) y(x) + s(x) 
+\end{equation}
+heißt \underline{lineare Dgl} und $s$ heißt \underline{Störfunktion}. $y'(x)=\alpha(x)y(x)$ heißt die zu (\ref{ldgl_eq}) gehörige \underline{homogene Gleichung}. \\
+\underline{Lösen von Linearen Dgls:} \\
+Sei $B$ eine Stammfunktion von $\alpha$ auf $I$
+\begin{enumerate} [a)]
+    \item Sei $y: I \to \mathbb{R}$ eine Funktion. Dann gilt:
+    \begin{enumerate} [i)]
+        \item $y$ ist eine Lösung der homogenen Gleichung auf $I \Leftrightarrow \exists c \in \mathbb{R}: y(x) = ce^{\beta(x)}$
+        \item Sei $y_p$ eine spezielle Lösung von (\ref{ldgl_eq}) auf $I$. Dann gilt: $y ist eine$ Lösung von (\ref{ldgl_eq}) auf $I$
+        $\Leftrightarrow \exists c \in \mathbb{R}: y(x) = y_p(x) + ce^{\beta(x)}$
+    \end{enumerate}
+    \item Variation der Konstanten: Der Ansatz 
+    \begin{align*}
+        y_p(x) = c(x)e^{\beta(x)}
+    \end{align*}
+    mit $c(x)$ unbekannt führt auf eine Lösung.
+\end{enumerate}
+\underline{Vorgehen:} \\
+Gegeben: Gleichung $y'(x) = \alpha(x)y(x)$
+\begin{enumerate}
+    \item Lösung der homogenen Gleichung: Setze $y(x) = ce^{\beta(x)}$, wobei $\beta$ Stammfunktion von $\alpha$ ist.
+    \item Lösung der inhomogenen Gleichung: \\
+    Ansatz: $y_p'(x) = c'(x)e^{\beta(x)} + c(x) e^{\beta(x)}\beta'(x) \stackrel{\text{!}}{=} y_p(x)\alpha(x) + s(x)$ \\
+    Löse diese Gleichung nach $c(x)$ auf, dann $y_p(x) = c(x)e^{\beta(x)}$. Allgemeine Lösung: $y(x)=ce^{\beta(x)} + y_p(x)$ \\
+    Awp lösen wie immer
+\end{enumerate}
+
+\subsection{Bernoulli- und Riccatti-Differentialgleichungen}
+\begin{align*}
+    y'(x) + g(x)y(x) + h(x)(y(x))^\alpha = 0
+\end{align*}
+ist eine \underline{Bernoulli Dgl}. \\
+Lösung: Sei $\alpha \in \mathbb{R} \setminus \{0,1\}$. Betrachte Transformation $z(x) = (y(x))^{1 - \alpha}$:
+\begin{align*}
+    z'(x) = - (1-\alpha)g(x)z(x) -(1-\alpha)h(x)
+\end{align*}
+Löse die lineare DGL für $z$. Ist $z$ eine Lösung der Dgl, dann setze $y(x) \coloneqq z(x)^{\frac{1}{1 - \alpha}}$ für $x$ aus $I_1 \subseteq I$,
+für das $(z(x))^{\frac{1}{1- \alpha}}$ eine differenzierbare Funktion liefert, Dann ist $y$ eine Lösung auf $I_1$.
+\begin{equation} \label{eq_ricatti}
+    y'(x) + g(x)y(x) + h(x)y^2(x) = k(x)
+\end{equation}
+heißt \underline{Riccatische Dgl}. Sind $y_1,y_2$ Lösungen von (\ref{eq_ricatti}) auf $I_1 \subseteq I$, so gilt für $u \coloneqq y_1 - y_2$:
+\begin{align*}
+    u'(x) = -(g(x) + 2h(x)y_2(x))u(x) - h(x)u^2(x)
+\end{align*}
+Fazit: Ist eine Lösung $u \neq 0$ von (\ref{eq_ricatti}) bekannt, so liefern Lösungen $u \neq 0$ obiger Bernoulli-Dgl für $u$ weitere Lösungen der Form $y_2(x) + u(x)$.
+
+\subsection{Lineare Systeme mit konstanten Koeffizienten}
+\underline{Definition:}
+\begin{align*}
+    y'(x) = Ay(x) + b(x)
+\end{align*}
+heißt das \underline{homogene} (wenn $b(x) = 0$) bzw. das \underline{inhomogene System} (wenn $b(x) \neq 0)$. \\
+\underline{Lösungsmethode:}
+\begin{enumerate}
+    \item Alle Eigenwerte (auch komplexe) bestimmen als Nullstellen des charakteristischen Polynoms.
+    \item Fasse in einer Menge $M$ alle reellen Eigenwerte und bei den komplexen Eigenwerten nur den Eigenwert selbst und \textbf{nicht} sein komplex Konjugiertes zusammen.
+    \item Bestimme eine Basis des Hauptraums für jedes Element der Menge $M$
+    \item Für jeden Basisvektor $v$ jedes Elements $\lambda_j$ aus $M$, setze:
+    \begin{align*}
+        y(x) \coloneqq e^{\lambda_jx} \cdot (v+\frac{x}{1!}(A-\lambda_jI)v+ \ldots + \frac{x^{k_j-1}}{(k_j-1)!}(A-\lambda_jI)^{k_j-1}v) \\
+        (k_j  \text{ entspricht der algebraischen Vielfachheit von }\lambda_j)
+    \end{align*}
+    Fall 1: Ist $\lambda_j$ reell, so ist $y(x)$ eine Lösung der Dgl auf $\mathbb{R}$ \\
+    Fall 2: Ist $\lambda_j$ komplex, so ist $y(x)$ auch komplex. Dann sind Real- und Imaginärteil von $y(x)$ jeweils linear unabhängige Lösungen der Dgl
+    \item Fasse alle $y(x)$ in einer Menge zusammen. Nun hat man das zur Dgl gehörige Fundamentalsystem.
+\end{enumerate}
+\underline{Awp Lösen:} Lgs lösen \\
+\underline{Inhomogene Gleichung lösen:} \\
+Ansatz: 
+\begin{align*}
+    y_p(x) = \underbrace{Y(x)}_{\text{Fundamentalmatrix}}c(x) 
+\end{align*}
+wobei $c$ noch unbekannt. Dann gilt: $y_p$ ist eine Lösung auf $I \Leftrightarrow c'(x)=(Y(x))^{-1}b(x)$. Bestimme $c(x)$ und erhalte damit $y_p$.
+Dann ist 
+\begin{align*}
+    y(x) = Y(x) \begin{pmatrix} c_1 \\ \vdots \\ c_n\end{pmatrix} + y_p(x)
+\end{align*}
+eine allgemeine Lösung

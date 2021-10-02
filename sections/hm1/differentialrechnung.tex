@@ -1,0 +1,86 @@
+\section{Differentialrechnung}
+
+\subsection{Differenzierbarkeitsbegriff}
+Wenn $\lim \limits_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}\Leftrightarrow \lim \limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h}$ existiert,
+dann ist $f$ in $x_0$ \underline{differenzierbar}. Dazu gilt: $f$ ist differenzierbar $\Rightarrow$ $f$ ist stetig
+
+\subsection{Differenzierbarkeitsregeln}
+\begin{enumerate}[a)]
+    \item $(\alpha f + \beta g)' = \alpha f' + \beta g'$ (Summenregel)
+    \item $(fg)' = f'g + fg'$ (Produktregel)
+    \item $(\frac{f}{g})' = \frac{f'g - fg'}{g^2}$ (Quotientenregel)
+    \item $(f(g))' = f'(g) \cdot g'$ (Kettenregel)
+\end{enumerate}
+
+\subsection{Umkehrsatz}
+Voraussetzung(en): $f$ ist stetig und streng monoton, in $x_0$ differenzierbar und $f'(x_0) \neq 0$. Dann gilt: \\
+\begin{align*}
+    (f^{-1)})'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(f^{-1}(y_0)}
+\end{align*}
+
+\subsection{Grenzwertdarstellung der eulerschen Zahl}
+$e^{a} = \lim \limits_{x \to \infty} (1 + \frac{a}{x})^x$
+
+\subsection{Ableitungswert an lokalen Extremstellen}
+Voraussetzung: $x_0 \in I$ ist lokales Extremum von $f$, $f$ ist diffbar in $x_0$ und $x_0$ ist innerer Punkt von $I$. Dann gilt: $f'(x_0) = 0$.
+
+\subsection{Mittelwertsatz}
+Voraussetzung: $f \in C([a,b])$ und $f$ sei auf $(a,b)$ diffbar. Dann gilt: 
+\begin{align*}
+    \exists \xi \in (a,b): \frac{f(b) - f(a)}{b-a} = f'(\xi)
+\end{align*}
+
+\subsection{Satz von L'Hôpital}
+Voraussetzung:
+\begin{itemize}
+    \item $I=(a,b)$, wobei $-\infty=a$ oder $b=\infty$ zulässig sind
+    \item $f,g: I \to \mathbb{R}$ sind auf $I$ differenzierbar mit $g'(x) \neq 0 (x \in I)$
+    \item $c=a \text{ oder } c=b$
+\end{itemize}
+Gilt $\lim \limits_{x \to c} f(x) = \lim \limits_{x \to c} g(x) = 0$ oder $\lim \limits_{x \to c} g(x) \pm \infty$, so ist 
+\begin{align*}
+    L \coloneqq \lim \limits_{x \to c} \frac{f'(x)}{g'(x)} =  \lim \limits_{x \to c} \frac{f(x)}{g(x)}
+\end{align*}
+für den Fall, dass $L$ existiert.
+
+\subsection{Differenzieren von Potenzreihen}
+Es sei $ f(x) \coloneqq \sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$ eine Potenzreihe (PR) mit Konvergenzradius (KR) $r>0$. Dann gilt: \\
+\begin{enumerate}[a)]
+    \item Die PR $\sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1}$ hat KR $r$
+    \item $f'(x) = \sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1}$
+\end{enumerate}
+
+\subsection{Tangens}
+Die Funktion $\tan x \coloneqq \frac{\sin x}{\cos x}$ heißt Tangens. Es gilt: $(\tan x)' = \frac{1}{\cos^2(x)}$. \\
+Die Umkehrfunktion des Tangens heißt Arkustangens. Es gilt: 
+\begin{enumerate}[a)]
+    \item $\arctan: \mathbb{R} \to (-\frac{\pi}{2},\frac{\pi}{2})$
+    \item $(\arctan x)' = \frac{1}{1+x^2}$
+\end{enumerate}
+
+\subsection{Abelscher Grenzwertsatz und wichtige Reihenwerte}
+Konvergiert eine PR $\sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$ mit KR $r$ auch in $x_0 \pm r$, so ist sie auch stetig in $x_0 \pm r$. \\
+Anwendung:
+\begin{enumerate} [a)]
+    \item $\log(1+x) = \sum \limits_{n=1}^{\infty} (-1)^{n+1} \frac{x^n}{n}$
+    \item $\log 2 = \sum \limits_{n=1}^{\infty} \frac{(-1)^{n+1}}{n}$
+    \item $\arctan x = \sum \limits_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1}$
+    \item $\arctan 1 = \frac{\pi}{4}$
+\end{enumerate}
+
+
+\subsection{Satz von Taylor}
+Voraussetzung: Es sei $n \in \mathbb{N}_0$ und $f$ auf $I$ $(n+1)$-mal differenzierbar. Dann existiert ein $\xi \in (\min\{x,x_0\}),\max\{x,x_0\}$ mit 
+\begin{align*}
+    f(x) = \sum \limits_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + \frac{f^{(n+1)} (\xi)}{(n+1)!} (x-x_0)^{n+1},
+\end{align*}
+wobei der erste Summand $T_n f(x,x_0) \coloneqq$ n-tes Taylorpolynom von $f$ im Punkt $x_0$ und der zweite Summand das Restglied ist.
+
+\subsection{Bestimmung lokaler Extremstellen}
+Es sei $n \geq 2 \text{, } f \in C^n(I) \text{, } x_0 \in I$ innerer Punkt von $I$, $f'(x_0) = f''(x_0)=\ldots=f^{(n-1)}(x_0)=0$ und $f^{(n)}(x_0) \neq 0$.
+Dann gilt:
+\begin{enumerate} [a)]
+    \item Ist $n$ gerade und $f^{(n)}(x_0)<0$, so hat $f$ in $x_0$ ein lokales Maximum
+    \item Ist $n$ gerade und $f^{(n)}(x_0)>0$, so hat $f$ in $x_0$ ein lokales Minimum
+    \item Ist $n$ ungerade, so hat $f$ in $x_0$ kein lokales Extremum
+\end{enumerate}

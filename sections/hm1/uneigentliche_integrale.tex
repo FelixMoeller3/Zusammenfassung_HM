@@ -1,0 +1,28 @@
+\section{Uneigentliche Integrale}
+Definition: Das uneigentliche Integral $\int_\alpha^\beta f(x)dx$ heißt konvergent $\Leftrightarrow$ 
+\begin{align*}
+    \text{Es existiert } \lim \limits_{t \to \beta -} \int_\alpha^t f(x)dx
+\end{align*}
+bzw.
+\begin{align*}
+    \lim \limits_{t \to \alpha +} \int_t^\beta f(x) dx
+\end{align*}
+
+Definition: Es sei $\alpha < \beta, \alpha \in \mathbb{R} \cup \{-\infty\}, \beta \in \mathbb{R} \cup \{\infty\}$ und 
+$f:(a,b) \to \mathbb{R}$. Das uneigentliche Integral $\int_\alpha^\beta f(x) dx$ heißt konvergent: $\Leftrightarrow$
+\begin{align*}
+    \exists c \in (\alpha, \beta): \int_\alpha^c f(x)dx \text{ und } \int_c^\beta f(x)dx konvergieren
+\end{align*}
+Sonst ist $\int_\alpha^\beta f(x)dx$ divergent.
+
+Definition $\int_\alpha^\beta f(x)dx$ heißt \underline{absolut konvergent} $\Leftrightarrow \int_\alpha^\beta |f(x)| dx$ konvergiert.
+
+\subsection{Abschätzen von uneigentlichen Integralen}
+\begin{enumerate} [a)]
+    \item Ist $\int_\alpha^\beta f(x) dx$ absolut konvergent, so ist $\int_\alpha^\beta f(x) dx$ konvergent und 
+    $|\int_\alpha^\beta f(x) dx| \leq \int_\alpha^\beta |f(x)| dx$
+    \item \underline{Majorantenkriterium}: Ist $|f| \leq h$ auf $[\alpha,\beta)$ und $\int_\alpha^\beta h(x)dx$ konvergent, so ist
+    $\int_\alpha^\beta f(x)dx$ absolut konvergent.
+    \item \underline{Minorantenkriterium} Ist $f\geq h \geq 0$ auf $[a,b)$ und $\int_\alpha^\beta h(x)$ divergent, so ist 
+    $\int_\alpha^\beta f(x)dx$ divergent.
+\end{enumerate}

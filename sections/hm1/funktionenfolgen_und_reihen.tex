@@ -1,0 +1,32 @@
+\section{Funktionenfolgen und -reihen}
+Die Funktionenfolge heißt auf $D$ \underline{punktweise konvergent} $\Leftrightarrow$ für jedes $x \in D$ ist die Folge $(f_n(x))$ konvergent.
+I.d.F. sei $f(x) \coloneqq \lim \limits_{n \to \infty} f_n(x)$ (Grenzfunktion). 
+Die Definition von \underline{Summenfunktionen} bei Funktionsreihen funktioniert analog.
+
+\subsection{Gleichmäßige Konvergenz}
+Definition: $\forall \varepsilon > 0: \exists n_0=n_0(\varepsilon) \in \mathbb{N}: \forall n \geq n_0: \forall x \in D; |f_n(x) - f(x)| < \varepsilon$ \\
+Analog die Definition für Funktionenreihen
+
+\subsection{Kriterien für gleichmäßige Konvergenz}
+\begin{enumerate}[a)]
+    \item $(f_n)$ konvergiere punktweise gegen $f$ und $(\alpha_n)$ sei eine Nullfolge. Dann gilt: \\
+    $\forall n \geq m: \forall x \in D: |f_n(x) - f(x)| \leq \alpha_n \Rightarrow$ gleichmäßige Konvergenz
+    \item Sei $(c_n)$ eine Folge in $[0,\infty)$, $\sum \limits_{n=1}^{\infty} c_n$ sei konvergent und $\forall n \leq m. \forall x \in D: |f_n(x)| \leq c_n$.
+    Dann konvergiert $\sum \limits_{n=1}^{\infty} f_n$ auf $D$ gleichmäßig. (Kriterium von Weierstraß)
+\end{enumerate}
+Jede Potenzreihe konvergiert \textbf{in} $(x_0-r, x_0+r)$ gleichmäßig!
+
+\subsection{Stetigkeit von Grenzfunktionen}
+$(f_n)$ bzw. $\sum \limits_{n=1}^{\infty} f_n$ konvergiere gleichmäßig auf $D$ gegen $f$. Dann gilt: \\
+\begin{enumerate}[a)]
+    \item $\forall n \in \mathbb{N}: f_n$ ist stetig $\Rightarrow f$ ist stetig
+    \item Sind alle $f_n \in C(D)$, so ist $f \in C(D)$
+\end{enumerate}
+Wichtige Folgerungen:
+\begin{enumerate} [a)]
+    \item Konvergiert $(f_n)$ punktweise gegen $f$ und gilt $f_n \in C(D) (n \in \mathbb{N})$ aber $f \notin C(D)$, so ist die Konvergenz \underline{nicht gleichmäßig}. 
+    \item Wenn alle $f_n$ in $x_0$ stetig sind, dann gilt: 
+    \begin{align*}
+        \lim \limits_{x \to x_0} (\lim \limits_{n \to \infty} f_n(x)) =  \lim \limits_{n \to \infty} (\lim \limits_{x \to x_0} f_n(x))
+    \end{align*}
+\end{enumerate}

@@ -1,0 +1,27 @@
+\section{Der Raum $\mathbb{R}^n$}
+Definition: $xy \coloneqq x_1y_1 + \ldots + x_ny_n$ heißt \underline{Skalarprodukt}. Die Zahl $\| x \| \coloneqq \sqrt{x\cdot x} = \sqrt{x_1^2 + \ldots x_n^2}$
+heißt Norm von $x$. Die Zahl $\| x-y\|$ heißt der Abstand von $x$ und $y$.
+
+\subsection{Wichtige (Un)gleichungen}
+Seien $x,y,z \in \mathbb{R}^n$ und $x \in \mathbb{R}$
+\begin{enumerate} [a)]
+    \item $(x+y) \cdot z = xz + yz$
+    \item $\| \alpha x \| = |\alpha| \cdot \| x\|$
+    \item $|x\cdot y| \leq \| x\| \cdot \| y\|$ (Cauchy-Schwarsche Ungleichung)
+    \item $\|x+y\| \leq  \|x\| + \| y\|$ (Dreiecksungleichung)
+    \item $|\| x \| - \| y \|| \leq \| x-y \|$
+\end{enumerate}
+\begin{align*}
+    \|A\| = (\sum \limits_{j=1}^{m} \sum \limits_{k=1}^{n} a_{jk}^2)^{\frac{1}{2}} \text{ heißt die \underline{Norm von A}}
+\end{align*}
+Es gilt $\| AB\| \leq \| A \| \| B \|$ \\
+Definition: $U_\varepsilon (x_0) \coloneqq \{x \in \mathbb{R}^n: |x-x_0| < \varepsilon \}$ heißt die \underline{offene Kugel um $x_0$} \\
+$\overline{U_\varepsilon(x_0)} \coloneqq \{ x \in \mathbb{R}^n: |x-x_0| \leq \varepsilon\}$ heißt die \underline{abgeschlossene Kugel um $x_0$} \\
+
+\underline{Definition}: Sei $A \subseteq \mathbb{R}^n$
+\begin{enumerate} [a)]
+    \item $A$ heißt \underline{beschränkt} $\Leftrightarrow \exists c \geq 0 \forall a \in A: \| a \| \leq c$
+    \item $A$ heißt \underline{offen} $\Leftrightarrow \forall a \in A \exists \varepsilon = \varepsilon(a) > 0: U_\varepsilon(a) \subseteq A$ 
+    \item $A$ heißt \underline{abgeschlossen} $\Leftrightarrow \mathbb{R}^n \setminus A$ ist offen
+    \item $A$ heißt \underline{kompakt} $\Leftrightarrow A$ ist beschränkt und abgeschlossen 
+\end{enumerate}

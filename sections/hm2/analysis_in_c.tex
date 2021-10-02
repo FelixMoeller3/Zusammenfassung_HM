@@ -1,0 +1,19 @@
+\section{Analysis in $\mathbb{C}$}
+Konvergenz von \underline{Folgen}: Es sei $(z_n)$ eine Folge in $\mathbb{C}$ und $z_0 \in \mathbb{C}$. Dann gilt: 
+$z_n \to z_0 \Leftrightarrow \lvert z_n - z_0 \rvert \to 0 \Leftrightarrow \text{Re}(z_n) \to \text{Re}(z_0) 
+\text{ und Im}(z_n) \to \text{Im}(z_0)$ \\
+Definitionen und Sätze über \underline{Reihen} wie in HM1 für Reihen in $\mathbb{R}$ (bis auf die Sätze, in denen die Anordnung auf $\mathbb{R}$
+eine Rolle spielt (Monotoniekriterium, Leibnizkriterium)). \underline{Potenzreihen} wie in HM1 für reelle Reihen. 
+
+\subsection{Komplexe Fourierreihen}
+Definition Komplexes Integral:
+Sei $f(x)=u(x) + iv(x)$. Sind $u,v \in R([a,b],\mathbb{R}$, so schreiben wir $f \in R([a,b],\mathbb{C})$ und definieren
+\begin{align*}
+    \int \limits_a^b f(x) dx \coloneqq \int \limits_a^b u(x) dx + i \int \limits_a^b v(x) dx
+\end{align*}
+
+Definition: Sei $f \in R([-\pi,\pi],\mathbb{C})$. Dann heißen die Zahlen $c_n \coloneqq \frac{1}{2\pi} \int \limits_{-\pi}^{\pi} f(x) e^{-inx} dx$
+die \underline{komplexen Fourierkoeffizienten} (FK) von $f$ und $\sum \limits_{n= - \infty}^{\infty} c_n e^{inx}$ heißt
+die komplexe Fourierreihe (FR). Schreibweise: $f \sim \sum \limits_{n=- \infty}^{\infty} c_n e^{inx}$ \\
+Bemerkung: Ist $f \in R([-\pi, \pi], \mathbb{R}) \text{ und } x \in \mathbb{R}$, so gilt: \\
+Die komplexe Fourierreihe konvergiert in $x \Leftrightarrow$ die reelle Fourierreihe konvergiert in $x$.

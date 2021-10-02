@@ -1,0 +1,60 @@
+\section{Differentialrechnung im $\mathbb{R}^n$ (vektorwertige Funktionen)}
+\underline{Definition:}
+\begin{enumerate}
+    \item Es sei $x_0 \in D$. $f$ heißt in $x_0$ partiell differenzierbar $\Leftrightarrow$ Alle $f_j$ sind in $x_0$ pdb. In diesem Fall heißt
+    \begin{align*}
+        \frac{\partial f}{\partial x}(x_0) \coloneqq \frac{\partial (f_1, \ldots, f_n)}{\partial (x_1, \ldots, x_n)} (x_0) \coloneqq J_f(x_0) \coloneqq
+        \begin{pmatrix} \frac{\partial f_1}{\partial x_1}(x_0) & \ldots & \frac{\partial f_1}{\partial x_n}(x_0) \\ \vdots & & \vdots \\ 
+        \frac{\partial f_n}{\partial x_1}(x_0) & \ldots & \frac{\partial f_n}{\partial x_n}(x_0)\end{pmatrix}
+    \end{align*}
+    die \underline{Jacobi-} oder \underline{Fundamentalmatrix von $f$} in $x_0$. In der Jacobimatrix stehen zeilenweise die Gradienten der Koordinatenfunktionen!
+    \item $f$ heißt in $x_0 \in D$ db: $\Leftrightarrow$ Es existiert eine $m \times n$-Matrix $A$ mit: 
+    \begin{align*}
+        \lim \limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{\lVert h \rVert} = 0
+    \end{align*}
+\end{enumerate}
+
+\subsection{Ableitungsbegriff und Folgerungen}
+\begin{enumerate} [a)]
+    \item $f$ ist in $x_0$ db $\Leftrightarrow$ Alle $f_j$ sind in $x_0$ db. I.d.F. gilt:
+    \begin{enumerate} [i)]
+        \item $f$ ist stetig in $x_0$
+        \item $f$ ist in $x_0$ pdb
+    \end{enumerate}
+    \item Ist $f$ in $x_0$ db, so heißt $f'(x_0) \coloneqq J_f(x_0)$ die \underline{Ableitung von $f$ in $x_0$.}
+    \item Sind alle partiellen Ableitungen $\frac{\partial f_i}{\partial x_k}$ vorhanden auf $D$ und in $x_0$ stetig, so ist $f$ in $x_0$ db.
+\end{enumerate}
+
+\subsection{Kettenregel}
+Sei $f: D \to \mathbb{R}^m$ in $x_0 \in D$ db und $\Tilde{D} \subseteq \mathbb{R}^m$, offen $f(D) \subseteq \Tilde{D}$ und $g: \Tilde{D} \to \mathbb{R}^p$ db
+in $y_0 \coloneqq f(x_0)$. Dann ist  $\phi \coloneqq g\circ f: D \to \mathbb{R}^p$ in $x_0$ db und 
+\begin{align*}
+    \phi'(x_0) = (g \circ f)'(x_0) = \underbrace{g'(f(x_0)) \cdot f'(x_0)}_{\text{Matrizenprodukt}}
+\end{align*}
+
+\subsection{Implizit definierte Funktionen}
+\underline{Spezialfall:} Seien $n=2, f\in C^1(D, \mathbb{R}),(x_0,y_0) \in D, f(x_0,y_0)=0$ und $f_y(x_0,y_0) \neq 0$. Dann existieren $\delta,\eta > 0$ und genau eine
+stetig differenzierbare Funktion $g: (x_0- \delta x_0 + \delta) \to (y_0 - \eta, y_0 + \eta)$ mit $g(x_0)=y_0$
+und $\forall x \in (x_0- \delta x_0 + \delta): f(x,g(x))=0$ \\
+\underline{Satz über implizit definierte Funktionen} \\
+Es sei $(x_=,y_0) \in D, f(x_0,y_0) = 0$ und det $\frac{\partial f}{\partial y}(x_0,y_0) \neq 0$ (wichtig!). Dann existieren $\delta,\eta > 0$ mit folgenden
+Eigenschaften:
+\begin{enumerate} [a)]
+    \item $U_\delta (x_0) \times U_\eta (y_0) \subseteq D$
+    \item $\forall x \in U_\delta(x_0) \exists_1 y \eqqcolon g(x) \in U_\eta(y_0): f(x,y)=0$
+    \item $g \in C^1(U_\delta(x_0),\mathbb{R}^p)$
+    \item $\forall x \in U_\delta(x_0): \text{det} \frac{\partial f}{\partial y}(x,g(x)) \neq 0$
+    \item $\forall x \in U_\delta(x_0): g'(x)=-(\frac{\partial f}{\partial y}(x,g(x))^{-1} \cdot (\frac{\partial f}{\partial x}(x,g(x))$
+\end{enumerate}
+
+\subsection{Umkehrsatz}
+Es sei $D \subseteq \mathbb{R}^n$ offen, $f \in C^1(D, \mathbb{R}^n)$ und $x_0 \in D$. Ist $\text{det}f'(x_0) \neq 0$, so existiert ein
+$\delta > 0$ mit:
+\begin{enumerate} [a)]
+    \item $U_\delta(x_0) \subseteq D$ und $f(U_\delta(x_0))$ ist offen
+    \item $f$ ist auf $U_\delta(x_0)$ injektiv
+    \item $f^{-1}: f(U_\delta(x_0)) \to U_\delta(x_0)$ ist in $C^1(f(U_\delta(x_0)),\mathbb{R}^n), \text{det}f'(x) \neq 0 (x \in U_\delta(x_0))$ und
+    \begin{align*}
+        (f^{-1})'(y) = (f'(f^{-1}(y)))^{-1} \hspace{0.5cm} (y \in f(U_\delta(x_0))
+    \end{align*}
+\end{enumerate}

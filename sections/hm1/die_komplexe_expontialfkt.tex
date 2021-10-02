@@ -1,0 +1,62 @@
+\section{Die Komplexe Exponentialfunktion}
+
+\subsection{Einführung in komplexe Zahlen}
+Die Menge $\mathbb{C}$ der komplexen Zahlen ist ein Körper. Die Binomische(n) Formel(n) gilt in $\mathbb{C}$ und die geometrische Summenformel
+ebenfalls. Sei $z=x+iy \in \mathbb{C}$. Es gilt:
+\begin{enumerate} [a)]
+    \item $|z| \coloneqq \sqrt{x^2 + y^2}$ \underline{Betrag} von z
+    \item $\Bar{z} \coloneqq x-iy$ ist das \underline{komplex Konjugierte} von $z=x+iy \in \mathbb{C}$
+    \item $z \cdot \Bar{z} = |z|^2$
+    \item $|z \cdot w| = |z| \cdot |w|$
+    \item $|z+w| \leq |z| + |w|$
+\end{enumerate}
+
+Definition: Die auf $\mathbb{C}$ definierte Funktion
+\begin{align*}
+    z=x+iy \mapsto e^z \coloneqq e^x (\cos y) + i\sin y)
+\end{align*}
+heißt \underline{komplexe Exponentialfunktion}.
+
+\subsection{Eigenschaften der komplexen Exponentialfunktion}
+\begin{enumerate}
+    \item $\forall z,w \in \mathbb{C}: e^{z+w} = e^z \cdot e^w, \forall z \in \mathbb{C} \forall n \in \mathbb{Z}: e^{nz}=(e^z)^n$
+    \item $\forall t \in \mathbb{R}: |e^{it}| = 1$ und $e^{-it} = \overline{e^{it}}$
+    \item $e^{\pi i} + 1 = 0$ (Eulersche Identität)
+    \item $\forall k \in \mathbb{Z} \forall z \in \mathbb{C}: e^{z+2k\pi i} = e^z$
+    \item $\forall z \in \mathbb{C}: \cos z = \frac{1}{2} (e^{iz} + e^{-iz})$ \, $\sin z = \frac{1}{2i}$
+\end{enumerate}
+
+\underline{Polarkoordinaten}: Sei $z=x+iy \in \mathbb{C} (x,y \in \mathbb{R}$ und $z \neq 0$. Setze $r \coloneqq |z| = \sqrt{x^2 + y^2}$.
+Wähle Argument $\varphi$ von $z$: $\cos \varphi = \frac{x}{r}, \sin \varphi = \frac{y}{r}$. Also ist $z=x+iy = r\cos \varphi + i\sin \varphi = re^{i\varphi} = |z|e^{i \arg z}$
+
+\subsection{Fundamentalsatz der Algebra}
+Über $\mathbb{C}$ zerfällt jedes Polynom mit Grad $\geq 1$ in Linearfaktoren.
+
+\subsection{Wurzeln in $\mathbb{C}$}
+Die n-ten Einheitswurzeln einer Zahl $z$ aus $\mathbb{C}$ sind von der Form 
+\begin{align*}
+    z_k \coloneqq \sqrt[n]{r} e^{\frac{\varphi + 2k\pi}{n}} \text{ für ein } k \in \{0,1,\ldots,n-1\}
+\end{align*}
+
+
+Möglichkeiten zum Wurzelziehen in $\mathbb{C}$:
+\underline{Beispiel}: $\sqrt{-3+4i}$
+\begin{enumerate}
+    \item $w=u+iv$. Dann gilt
+    \begin{align*}
+        w^2 = u^2 + 2iuv - v^2 = -3+4i \Leftrightarrow u^2 - v^2 = -3 \text{ und } 2iuv=4i
+    \end{align*}
+    Löse das Gleichungssystem
+    \item $z=-3+4i$. Bestimme $|z|$ und $\arg z$. Dann sind 
+    \begin{align*}
+        \pm \sqrt{|z|} e^{i \frac{\arg z}{2}} \text{ die Wurzeln von } z
+    \end{align*}
+    \item Ist $z \in (-\infty,0]$, so sind $w=\pm i \sqrt{-z}$ die Wurzeln von $z$
+    \item pq-Formel
+\end{enumerate}
+
+\subsection{Komplexer Logarithmus}
+Sei $w\in \mathbb{C} \setminus \{0\}, r=|w|$ und $\varphi = \arg w$. Für $z \in \mathbb{C}$ gilt: 
+\begin{align*}
+    z \text{ ist ein Logarithmus von } w \Leftrightarrow \exists k \in \mathbb{Z}: z = \log |w| + i\varphi + 2k\pi i
+\end{align*}

@@ -1,0 +1,50 @@
+\section{Fourierreihen}
+Betrachte die Eigenschaft: $(V) \coloneqq f: \mathbb{R} \to \mathbb{R}, f \in R([-\pi,\pi])$ und $f$ ist \\
+auf $\mathbb{R} \text{ }2\pi$-periodisch, d.h. $f(x+2\pi) = f(x) (x \in \mathbb{R})$ \\
+
+Definition: Seien $(a_n)_{n=0}^{\infty}$ und $(b_n)_{n=0}^{\infty}$ Folgen in $\mathbb{R}$. Eine Reihe der Form
+\begin{align*}
+    \frac{a_0}{2} + \sum \limits_{n=1}^{\infty} (a_n \cos (nx) + b_n \sin (nx))
+\end{align*}
+heißt \underline{trigonometrische Reihe} (TR). 
+\newpage 
+\underline{Definition Fourierkoeffizienten/Fourierreihe}:
+Die Funktion f erfülle $(V)$. Setze 
+\begin{align*}
+    a_n \coloneqq \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(nx) dx, \hspace{0.5cm}b_n \coloneqq \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(nx) dx
+\end{align*}
+
+Die Zahlen $a_n$ und $b_n$ heißen \underline{Fourierkoeffizienten (FK)} von $f$ und die mit $a_n$ und $b_n$ gebildete trigonometrische Reihe heißt die zu $f$
+gehörende \underline{Fourierreihe}. Man schreibt: $f(x) \sim \frac{a_0}{2} + \sum \limits_{n=1}^{\infty} (a_n \cos(nx) + b_n \sin(nx))$
+
+\subsection{Nützliches zu Fourierreihen und -koeffizienten}
+Für $f$ gelte $(V)$.
+\begin{enumerate} [a)]
+    \item Ist $f$ gerade, also $f(x) = f(-x) (x \in \mathbb{R})$, so gilt für die Fourierkoeffizienten von f:
+    \begin{align*}
+        a_n = \frac{2}{\pi} \int_0^{\pi} f(x) \cos(nx) dx (n \in \mathbb{N}_0) \text{ und } b_n=0 (n \in \mathbb{N})
+    \end{align*}
+    \item Ist $f$ ungerade, also $f(x) = -f(-x) (x \in \mathbb{R}$, so gilt für die Fourierkoeffizienten von f:
+    \begin{align*}
+        a_n = 0 \text{ und } b_n= \frac{2}{\pi} \int_0^{\pi} f(x) \sin(nx) dx (n \in \mathbb{N}_0))
+    \end{align*}
+\end{enumerate}
+Definition: Wir setzen $g(x_0\pm) \coloneqq \lim \limits_{x \to x_0 \pm} g(x)$, falls der Grenzwert existiert und reell ist.
+Definition: Es sei $f:\mathbb{R} \to \mathbb{R} \text{ } 2\pi$-periodisch. Die Funktion heißt \underline{stückweise glatt}: $\Leftrightarrow$ es existiert eine
+Zerlegung $\{t_0,t_1,\ldots,t_n\}$ des Intervalls $[-\pi,\pi]$ mit:
+\begin{enumerate}[i)]
+    \item $f \in C^1((t_{j-1},t_j)) (j=1,\ldots,n)$
+    \item $\forall x \in \mathbb{R}: \exists f(x-),f'(x-),f(x+),f'(x+)$
+\end{enumerate}
+I.d.F. setzen wir $s_f(x) \coloneqq \frac{f(x+) + f(x-)}{2} (x \in \mathbb{R})$
+
+\subsection{Konvergenz von Fourierreihen}
+Die Funktion $f$ sei $2\pi$-periodisch und stückweise glatt. Dann konvergiert die Fourierreihe von $f$ in jedem $x \in \mathbb{R}$ gegen $s_f(x)$. Ist in diesem
+Fall $f$ in $x \in \mathbb{R}$ stetig, so konvergiert die Fourierreihe gegen $f(x)$.
+
+\subsection{Weitere Konvergenzerkenntnisse zu Fourierreihen}
+Es sei $f \in C(\mathbb{R}), 2\pi$-periodisch und stückweise glatt. Dann gilt:
+\begin{enumerate}
+    \item Die Fourierreihe von $f$ konvergiert in jedem $x \in \mathbb{R}$ absolut und sie konvergiert auf $\mathbb{R}$ gleichmäßig gegen $f$.
+    \item Die Reihen der Fourierkoeffizienten konvergieren absolut.
+\end{enumerate}
