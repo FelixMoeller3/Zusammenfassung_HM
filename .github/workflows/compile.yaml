@@ -1,0 +1,19 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+
+      - name: Upload LaTeX document
+        uses: actions/upload-artifact@v2
+        with: 
+          name: PDF
+          path: out/main.pdf
