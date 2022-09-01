@@ -2,35 +2,35 @@
 Monotone und stetige Funktionen sind riemann-integrierbar.
 
 \subsection{Erster Hauptsatz der Differential- und Integralrechnung}
-Ist $f \in R([a,b])$ und besitzt eine Stammfunktion, so ist $\int_a^b f(x)dx = F(b) - F(a)$
+Ist $f \in R([a,b])$ und besitzt eine Stammfunktion, so ist $\int_a^b f(x)\,dx = F(b) - F(a)$
 
 \subsection{Integrale gleichmäßig konvergenter Funktionenfolgen}
 Es sei $(f_n)$ eine Folge in $R([a,b])$ und $f_n$ konvergiert gleichmäßig auf $[a,b]$ gegen $f$. Dann:
 \begin{enumerate}
     \item $f \in R([a,b])$
-    \item $\lim \limits_{n \to \infty} \int_a^b f_n(x) dx = \int_a^b f(x) dx$
+    \item $\lim \limits_{n \to \infty} \int_a^b f_n(x)\,dx = \int_a^b f(x)\,dx$
 \end{enumerate}
 
 \subsection{Integration von Potenzreihen}
 $g(x) \coloneqq \sum \limits_{n=0}^{\infty} a_n (x-x_0)^n \Rightarrow G(x) \coloneqq \sum \limits_{n=0}^{\infty} \frac{a_n}{n+1} (x-x_0)^{n+1}$, 
-wobei $G(x)$ den gleichen Konvergenzradius wie $g(x)$ besitzt
+wobei $G$ den gleichen Konvergenzradius wie $g$ besitzt
 
 \subsection{Ein paar wichtige Erkenntnisse}
 Es seien $f,g \in R(]a,b])$.
 \begin{enumerate} [a)]
-    \item Es sei $h$ lipschitzstetig auf $([a,b])$. Dann ist $h \circ f \in R([a,b])$
-    \item $|f| \in R([a,b])$ und $|\int_a^b f(x) dx| \leq \int_a^b|f(x)| dx$ (Dreiecksungleichung für Integrale)
+    \item Es sei $h$ lipschitzstetig auf $([a,b])$. Dann ist $h \circ f \in R([a,b])$.
+    \item $|f| \in R([a,b])$ und $|\int_a^b f(x)\,dx| \leq \int_a^b|f(x)|\,dx$ (Dreiecksungleichung für Integrale)
     \item $f \cdot g \in R([a,b])$ (Das Produkt integrierbarer Funktionen ist integrierbar)
-    \item Ist $f(x) \neq 0 (x \in [a,b]$ und $\frac{1}{g}$ beschränkt auf $[a,b]$, so ist $\frac{1}{g}$ integrierbar.
+    \item Ist $f(x) \neq 0\ (x \in [a,b])$ und $\frac{1}{f}$ beschränkt auf $[a,b]$, so ist $\frac{1}{f}$ integrierbar.
 \end{enumerate}
 
 \subsection{Regeln für Integrationsgrenzen}
-Es ist $\int_\alpha^\alpha f(x) dx \coloneqq 0$ und $\int_\alpha^\beta f(x) dx \coloneqq -\int_\beta^\alpha f(x) dx$
+Es ist $\int_\alpha^\alpha f(x)\,dx \coloneqq 0$ und $\int_\alpha^\beta f(x)\,dx \coloneqq -\int_\beta^\alpha f(x)\,dx$
 
 \subsection{Zweiter Hauptsatz}
-Es sei $f \in R([a,b])$ und $F(x) \coloneqq \int_a^x f(t) dt (x \in [a,b])$. Dann gilt:
+Es sei $f \in R([a,b])$ und $F(x) \coloneqq \int_a^x f(t)\,dt\ (x \in [a,b])$. Dann gilt:
 \begin{enumerate}[a)]
-    \item $F(y) - F(x) = \int_x^y f(t) dt$
+    \item $F(y) - F(x) = \int_x^y f(t)\,dt$
     \item $F$ ist Lipschitz-stetig
     \item Ist $f \in C([a,b])$, so ist $F \in C^1([a,b])$ und $F'(x) = f(x)$
 \end{enumerate}
@@ -38,27 +38,27 @@ Folgerung: Stetige Funktionen (auf Intervallen) haben Stammfunktionen
 
 \subsection{Partielle Integration}
 \begin{align*}
-    \int_a^b f'g dx = \Big[fg \Big]_{a}^b - \int_a^b fg' dx
+    \int_a^b f'g\,dx = \Big[fg \Big]_{a}^b - \int_a^b fg'\,dx
 \end{align*}
 
 \subsection{Substitutionsregeln}
 Voraussetzung: $I,J$ sind Intervalle in $\mathbb{R}$, $f \in C(I), g \in C^1(J)$ und $g(J) \subseteq I$.
 \begin{enumerate}[a)]
-    \item $\int f(g(t)) g'(t) dt = \int f(x) dx \mid_{x=g(t)}$
+    \item $\int f(g(t)) g'(t)\,dt = \int f(x)\,dx \mid_{x=g(t)}$
     \item Es sei $g(t) \neq 0$. Dann:
     \begin{align*}
-        \int f(x) dx = \int f(g(t)) g'(t) dt \mid_{t=g^{-1}(x)}
+        \int f(x)\,dx = \int f(g(t)) g'(t)\,dt \mid_{t=g^{-1}(x)}
     \end{align*}
-    \item Ist $I = \langle a,b \rangle, J = \langle \alpha, \beta \rangle, g(\alpha) = a \text{und} g(\beta)=b$, so gilt
+    \item Ist $I = \langle a,b \rangle,\ J = \langle \alpha,\ \beta \rangle,\ g(\alpha) = a \text{ und } g(\beta)=b$, so gilt
     \begin{align*}
-        \int_a^b f(x) dx = \int_\alpha^\beta f(g(t))g'(t)dt
+        \int_a^b f(x)\,dx = \int_\alpha^\beta f(g(t))g'(t)\,dt
     \end{align*}
 \end{enumerate}
 
 \subsection{Mittelwertsatz der Integralrechnung}
-Voraussetzung: $f,g \in R([a,b]), g \geq 0$ auf $[a,b], m \coloneqq \inf f([a,b])$ und $M \coloneqq \sup f([a,b])$. Dann gilt: \\
+Voraussetzung: $f,g \in R([a,b]),\ g \geq 0$ auf $[a,b],\ m \coloneqq \inf f([a,b])$ und $M \coloneqq \sup f([a,b])$. Dann gilt:
 \begin{enumerate} [a)]
-    \item $\exists \mu \in [m,M]: \int_a^b fg dx = \mu \int_a^b g dx$
-    \item $\exists \mu \in [m.M]: \int_a^b f dx = \mu (b-a)$
+    \item $\exists \mu \in [m,M]: \int_a^b fg\,dx = \mu \int_a^b g\,dx$
+    \item Spezialfall: $g = 1$: $\exists \mu \in [m,M]: \int_a^b f\,dx = \mu (b-a)$
 \end{enumerate}
 Ist $f \in C([a,b])$, so existiert ein $\xi \in [a,b]$ mit $\mu = f(\xi)$ in a) bzw. b)

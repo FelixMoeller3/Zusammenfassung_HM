@@ -9,27 +9,27 @@ Sei $g$ stückweise glatt. Dann:
 \begin{align*}
     g'(x_0) \coloneqq \frac{1}{2} (g'(x_0-) + g'(x_0+))
 \end{align*}
-\underline{Definition:} $\int \limits_{-\infty}^{\infty} f(t)dt$ heißt (absolut) konvergent $\Leftrightarrow \int \limits_{-\infty}^{\infty} \text{Re}f(t)dt$ 
-\underline{und} $\int \limits_{-\infty}^{\infty} \text{Im}f(t)dt$ sind (absolut) konvergent. \\
+\underline{Definition:} $\int \limits_{-\infty}^{\infty} f(t)\,dt$ heißt (absolut) konvergent $\Leftrightarrow \int \limits_{-\infty}^{\infty} \text{Re}f(t)\,dt$ 
+\underline{und} $\int \limits_{-\infty}^{\infty} \text{Im}f(t)\,dt$ sind (absolut) konvergent. \\
 Im Konvergenzfall: 
 \begin{align*}
-    \int \limits_{-\infty}^\infty f(t) dt \coloneqq  \int \limits_{-\infty}^\infty \cRe f(t) dt +  \ci \int \limits_{-\infty}^\infty \cIm f(t) dt
+    \int \limits_{-\infty}^\infty f(t)\,dt \coloneqq  \int \limits_{-\infty}^\infty \cRe f(t)\,dt +  \ci \int \limits_{-\infty}^\infty \cIm f(t)\,dt
 \end{align*} 
-Ist $ \int \limits_{-\infty}^\infty f(t) dt$ absolut konvergent, so heißt $f$ \underline{absolut integrierbar (aib)}. \\
+Ist $ \int \limits_{-\infty}^\infty f(t)\,dt$ absolut konvergent, so heißt $f$ \underline{absolut integrierbar (aib)}. \\
 \underline{Fouriertransformierte:}
 Zu einer Funktion $f: \mathbb{R} \to \mathbb{C}$ heißt $\widehat{f}:\mathbb{R} \to \mathbb{C}$ definiert durch:
 \begin{align*}
-    \widehat{f}(s) \coloneqq \frac{1}{2\pi} \int \limits_{-\int}^\int f(t) e^{-ist} dt
+    \widehat{f}(s) \coloneqq \frac{1}{2\pi} \int \limits_{-\int}^\int f(t) e^{-ist}\,dt
 \end{align*}
 die Fouriertransformierte von $f$. Die Zuordnung $f \mapsto \widehat{f}$ heißt \underline{Fouriertransformation}.
 
 \subsection{Der Cauchysche Hauptwert}
-Definition: $ \int \limits_{-\infty}^\infty f(x) dx= \lim \limits_{\beta \to - \infty} \int \limits_\beta^0 f(x) dx + \lim \limits_{\alpha \to \infty} \int \limits_0^\alpha f(x) dx$ \\
-Existiert $\lim \limits_{\alpha \to \infty} \int \limits_{-\alpha}^\alpha f(x) dx$ so heißt diese Zahl \underline{Cauchyscher Hauptwert (CH)} und man schreibt: 
+Definition: $ \int \limits_{-\infty}^\infty f(x)\,dx= \lim \limits_{\beta \to - \infty} \int \limits_\beta^0 f(x)\,dx + \lim \limits_{\alpha \to \infty} \int \limits_0^\alpha f(x)\,dx$ \\
+Existiert $\lim \limits_{\alpha \to \infty} \int \limits_{-\alpha}^\alpha f(x)\,dx$ so heißt diese Zahl \underline{Cauchyscher Hauptwert (CH)} und man schreibt: 
 \begin{align*}
-    \text{CH- } \int \limits_{- \infty}^\infty f(x) dx \coloneqq \lim \limits_{\alpha \to \infty} \int_{-\alpha}^\alpha f(x) dx
+    \text{CH- } \int \limits_{- \infty}^\infty f(x)\,dx \coloneqq \lim \limits_{\alpha \to \infty} \int_{-\alpha}^\alpha f(x)\,dx
 \end{align*}
-Ist $\int \limits_{-\infty}^{\infty} f(x) dx$ konvergent, so ist $\text{CH-} \int \limits_{-\infty}^\infty f(x) dx \coloneqq \lim \limits_{\alpha \to \infty} \int \limits_{-\alpha}^\alpha f(x) dx$.
+Ist $\int \limits_{-\infty}^{\infty} f(x)\,dx$ konvergent, so ist $\text{CH-} \int \limits_{-\infty}^\infty f(x)\,dx \coloneqq \lim \limits_{\alpha \to \infty} \int \limits_{-\alpha}^\alpha f(x)\,dx$.
 Sei $f: \mathbb{R} \to \mathbb{C}$ stückweise glatt und aib. Dann gilt:
 \begin{align*}
     \forall t \in \mathbb{R}: \text{CH-}\int \limits_{-\infty}^\infty \widehat{f}(s)e^{ist} ds = \frac{1}{2} (f(t+) + f(t-))
@@ -43,19 +43,19 @@ Sei $f: \mathbb{R} \to \mathbb{C}$ stückweise glatt und aib. Dann gilt:
 \end{enumerate}
 
 \subsection{Faltungen}
-\underline{Definition:} Seien $f_1,f_2: \mathbb{R} \to \mathbb{C}$ Funktionen, sodass $\int \limits_{-\infty}^\infty f_1(t-x)f_2(x)dx$ für jedes $t \in \mathbb{R}$ konvergent ist. Dann heißt
+\underline{Definition:} Seien $f_1,f_2: \mathbb{R} \to \mathbb{C}$ Funktionen, sodass $\int \limits_{-\infty}^\infty f_1(t-x)f_2(x)\,dx$ für jedes $t \in \mathbb{R}$ konvergent ist. Dann heißt
 \begin{align*}
-    f_1 * f_2: \mathbb{R} \to \mathbb{C}, (f_1*f_2)(t) \coloneqq \frac{1}{2\pi} \int \limits_{-\infty}^\infty f_1(t-x)f_2(x)dx
+    f_1 * f_2: \mathbb{R} \to \mathbb{C}, (f_1*f_2)(t) \coloneqq \frac{1}{2\pi} \int \limits_{-\infty}^\infty f_1(t-x)f_2(x)\,dx
 \end{align*}
 die \underline{Faltung} von $f_1$ und $f_2$. \\
 \underline{Wichtiges zu Faltungen:} Seien $f_1,f_2: \mathbb{R} \to \mathbb{C}$ stetig und aib und $f_1$ beschränkt.
 \begin{enumerate} [a)]
-    \item $\forall t \in \mathbb{R}: \int \limits_{-\infty}^\infty f_1(t-x)f_2(x)dx$ konvergiert absolut
+    \item $\forall t \in \mathbb{R}: \int \limits_{-\infty}^\infty f_1(t-x)f_2(x)\,dx$ konvergiert absolut
     \item $f_1*f_2$ ist stetig und aib und
     \begin{align*}
         (\widehat{f_1*f_2})(s) = \widehat{f_1}(s) \widehat{f_2}(s)
     \end{align*}
-    \item $\lvert f_1*f_2(t)\rvert \leq \frac{1}{2\pi} \sup \limits_{x \in \mathbb{R}} \lvert f_1(x)\rvert \int \limits_{-\infty}^\infty \lvert f_2(x)\rvert dx \text{ } (t \in \mathbb{R})$
+    \item $\lvert f_1*f_2(t)\rvert \leq \frac{1}{2\pi} \sup \limits_{x \in \mathbb{R}} \lvert f_1(x)\rvert \int \limits_{-\infty}^\infty \lvert f_2(x)\rvert\,dx \text{ } (t \in \mathbb{R})$
 \end{enumerate}
 
 \subsection{Schwartzraum}

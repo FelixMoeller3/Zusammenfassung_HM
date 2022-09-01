@@ -37,17 +37,28 @@ Voraussetzung:
     \item $f,g: I \to \mathbb{R}$ sind auf $I$ differenzierbar mit $g'(x) \neq 0 (x \in I)$
     \item $c=a \text{ oder } c=b$
 \end{itemize}
-Gilt $\lim \limits_{x \to c} f(x) = \lim \limits_{x \to c} g(x) = 0$ oder $\lim \limits_{x \to c} g(x) \pm \infty$, so ist 
+Gilt $\lim \limits_{x \to c} f(x) = \lim \limits_{x \to c} g(x) = 0$ oder $\lim \limits_{x \to c} f(x) = \lim \limits_{x \to c} g(x) = \infty$, so ist 
 \begin{align*}
     L \coloneqq \lim \limits_{x \to c} \frac{f'(x)}{g'(x)} =  \lim \limits_{x \to c} \frac{f(x)}{g(x)}
 \end{align*}
 für den Fall, dass $L$ existiert.
 
 \subsection{Differenzieren von Potenzreihen}
-Es sei $ f(x) \coloneqq \sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$ eine Potenzreihe (PR) mit Konvergenzradius (KR) $r>0$. Dann gilt: \\
+Es sei $ f(x) \coloneqq \sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$ eine Potenzreihe (PR) mit Konvergenzradius $r>0$. Dann gilt:
 \begin{enumerate}[a)]
-    \item Die PR $\sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1}$ hat KR $r$
-    \item $f'(x) = \sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1}$
+    \item Die \glqq gliedweise differenzierte\grqq{} Potenzreihe
+    \begin{align*}
+        \sum \limits_{n=0}^{\infty} (a_n(x-x_0)^n)' 
+        = \sum \limits_{\textbf{n=1}}^{\infty} n \cdot a_n(x-x_0)^{n-1} 
+        = \sum \limits_{\textbf{n=0}}^{\infty} (n-1) \cdot a_n(x-x_0)^{n}
+    \end{align*}
+    hat denselben Konvergenzradius $r$.
+    \item $f$ ist differenzierbar auf $I = (x_0-r,r_x+r)$.
+    \begin{align*}
+        f(x)'
+        = \sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1} 
+        = \sum \limits_{n=0}^{\infty} (n-1) \cdot a_n(x-x_0)^{n}
+    \end{align*}
 \end{enumerate}
 
 \subsection{Tangens}
@@ -70,7 +81,7 @@ Anwendung:
 
 
 \subsection{Satz von Taylor}
-Voraussetzung: Es sei $n \in \mathbb{N}_0$ und $f$ auf $I$ $(n+1)$-mal differenzierbar. Dann existiert ein $\xi \in (\min\{x,x_0\}),\max\{x,x_0\}$ mit 
+Voraussetzung: Es sei $n \in \mathbb{N}_0$ und $f$ auf $I$ $(n+1)$-mal differenzierbar. Dann existiert ein $\xi \in (\min\{x,x_0\},\max\{x,x_0\})$ mit 
 \begin{align*}
     f(x) = \sum \limits_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + \frac{f^{(n+1)} (\xi)}{(n+1)!} (x-x_0)^{n+1},
 \end{align*}

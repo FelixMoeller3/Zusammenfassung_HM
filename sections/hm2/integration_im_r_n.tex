@@ -4,20 +4,20 @@ Es seien $p,q \in \mathbb{N}, n=p+q$. Es sei $I_1$ ein kompaktes Intervall im $\
 es sei $I \coloneqq I_1 \times I_2 \subseteq \mathbb{R}^n$ und $f \in R(I)$.
 \begin{enumerate} [a)]
     \item Für jedes feste $y \in I_2$ ist die Funktion $x \mapsto f(x,y)$ integrierbar über  $I_1$ und es sei 
-    $g(y) \coloneqq \int_{I_1} f(x,y) dx$. Dann gilt $g \in R(I_2)$ und
+    $g(y) \coloneqq \int_{I_1} f(x,y)\,dx$. Dann gilt $g \in R(I_2)$ und
     \begin{align*}
-        \int_I f(x,y) d(x,y) = \int_{I_2} g(y) dy = \int_{I_2} (\int_{I_1} f(x,y) dx) dy
+        \int_I f(x,y) d(x,y) = \int_{I_2} g(y)\,dy = \int_{I_2} (\int_{I_1} f(x,y)\,dx)\,dy
     \end{align*}
     \item Für jedes feste $x \in I_1$ ist die Funktion $y \mapsto f(x,y)$ integrierbar über  $I_2$ und es sei 
-    $g(x) \coloneqq \int_{I_2} f(x,y) dy$. Dann gilt $g \in R(I_1)$ und
+    $g(x) \coloneqq \int_{I_2} f(x,y)\,dy$. Dann gilt $g \in R(I_1)$ und
     \begin{align*}
-        \int_I f(x,y) d(x,y) = \int_{I_1} g(x) dx = \int_{I_1} (\int_{I_2} f(x,y) dy) dx
+        \int_I f(x,y) d(x,y) = \int_{I_1} g(x)\,dx = \int_{I_1} (\int_{I_2} f(x,y)\,dy)\,dx
     \end{align*}
 \end{enumerate}
 \underline{Folgerung:} Es sei $I = [a_1,b_1] \times \ldots \times [a_n,b_n]$ und $f \in C(I)$. Dann ist
 \begin{align*}
-    \int_I f(x) dx = \int_I f(x_1, \ldots, x_n) d(x_1, \ldots, x_n) = \int \limits_{a_1}^{b_1} (\ldots \int \limits_{a_{n-1}}^{b_{n-1}}(\int \limits_{a_n}^{b_n}
-    f(x_1,\ldots,x_n)dx_n)dx_{n-1}\ldots) dx_1
+    \int_I f(x)\,dx = \int_I f(x_1, \ldots, x_n) d(x_1, \ldots, x_n) = \int \limits_{a_1}^{b_1} (\ldots \int \limits_{a_{n-1}}^{b_{n-1}}(\int \limits_{a_n}^{b_n}
+    f(x_1,\ldots,x_n)\,dx_n)\,dx_{n-1}\ldots)\,dx_1
 \end{align*}
 wobei die Reihenfolge der Integration \underline{beliebig vertauscht} werden kann.
 
@@ -36,7 +36,7 @@ Weiter sei $Q(z)$ messbar für jedes $z \in [a,b]$. Dann ist $z \mapsto \lvert Q
 \begin{align*}
     B = \{ (x,y,z) \in \mathbb{R}^3: y^2+z^2 \leq f(x)^2\}
 \end{align*}
-Für $x \in [a,b]$ ist dann $Q(x) = \{ (y,z) \in \mathbb{R}^2: y^2+z^2\leq f(x)^2\}$. Also gilt: $\lvert Q(x) \rvert = \pi f(x)^2$ und somit $\lvert B \rvert = \pi \int \limits_a^b f(x)^2 dx$ \\
+Für $x \in [a,b]$ ist dann $Q(x) = \{ (y,z) \in \mathbb{R}^2: y^2+z^2\leq f(x)^2\}$. Also gilt: $\lvert Q(x) \rvert = \pi f(x)^2$ und somit $\lvert B \rvert = \pi \int \limits_a^b f(x)^2\,dx$ \\
 \underline{Normalbereich bzgl. $x$-Achse:} \\
 Sei $a,b \in \mathbb{R}, a < b, f,g \in C([a,b])$ und $f \leq g$ auf $[a,b]$. Dann heißt die Menge
 \begin{align*}
@@ -44,7 +44,7 @@ Sei $a,b \in \mathbb{R}, a < b, f,g \in C([a,b])$ und $f \leq g$ auf $[a,b]$. Da
 \end{align*}
 ein \underline{Normalbereich bzgl. der $x$-Achse.} Es gilt:
 \begin{align*}
-    \int_B h(x,y) d(x,y) = \int_I h_B(x,y) d(x,y) = \int \limits_a^b (\int \limits_{f(x)}^{g(x)} h(x,y) dy)dx
+    \int_B h(x,y) d(x,y) = \int_I h_B(x,y) d(x,y) = \int \limits_a^b (\int \limits_{f(x)}^{g(x)} h(x,y)\,dy)\,dx
 \end{align*}
 \underline{Normalbereich bzgl. der $y$-Achse:} \\
 Seien $a,b,f$ und $g$ wie in obiger Definition. Dann heißt die Menge 
@@ -53,7 +53,7 @@ Seien $a,b,f$ und $g$ wie in obiger Definition. Dann heißt die Menge
 \end{align*}
 ein \underline{Normalbereich bzgl. der $y$-Achse}. Wie oben gilt:
 \begin{align*}
-    \int_B h(x,y) d(x,y) = \int \limits_a^b (\int \limits_{f(y)}^{g(y)} h(x,y) dx)dy
+    \int_B h(x,y) d(x,y) = \int \limits_a^b (\int \limits_{f(y)}^{g(y)} h(x,y)\,dx)\,dy
 \end{align*}
 
 \subsection{Substitutionsregel}
@@ -61,7 +61,7 @@ ein \underline{Normalbereich bzgl. der $y$-Achse}. Wie oben gilt:
 Es sei $G \subseteq \mathbb{R}^n$ offen, $g \in C^1(G,\mathbb{R}^n)$ und $B \subseteq G$ kompakt und messbar. Weiter sei $g$ auf dem Inneren $B^\circ$ von $B$ injektiv
 und det$g'(y) \neq 0 \text{ } (y \in B^\circ)$. Ist dann $A \coloneqq g(B)$ und $f \in C(A,\mathbb{R)}$, so ist $A$ kompakt und messbar und es gilt:
 \begin{align*}
-    \int_A f(x) dx = \int_B f(g(y)) \lvert \text{det} g'(y)\rvert dy
+    \int_A f(x)\,dx = \int_B f(g(y)) \lvert \text{det} g'(y)\rvert\,dy
 \end{align*}
 \underline{Polarkoordinaten (n=2):} \\
 $x = r\cos \varphi, y = r\sin \varphi \text{ } (r = \lVert(x,y)\rVert = \sqrt{x^2 + y^2})$
