@@ -11,7 +11,7 @@ heißt \underline{trigonometrische Reihe} (TR).
 \underline{Definition Fourierkoeffizienten/Fourierreihe}:
 Die Funktion f erfülle $(V)$. Setze 
 \begin{align*}
-    a_n \coloneqq \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(nx) dx, \hspace{0.5cm}b_n \coloneqq \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(nx) dx
+    a_n \coloneqq \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos(nx)\,dx, \hspace{0.5cm}b_n \coloneqq \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin(nx)\,dx
 \end{align*}
 
 Die Zahlen $a_n$ und $b_n$ heißen \underline{Fourierkoeffizienten (FK)} von $f$ und die mit $a_n$ und $b_n$ gebildete trigonometrische Reihe heißt die zu $f$
@@ -22,11 +22,11 @@ Für $f$ gelte $(V)$.
 \begin{enumerate} [a)]
     \item Ist $f$ gerade, also $f(x) = f(-x) (x \in \mathbb{R})$, so gilt für die Fourierkoeffizienten von f:
     \begin{align*}
-        a_n = \frac{2}{\pi} \int_0^{\pi} f(x) \cos(nx) dx (n \in \mathbb{N}_0) \text{ und } b_n=0 (n \in \mathbb{N})
+        a_n = \frac{2}{\pi} \int_0^{\pi} f(x) \cos(nx)\,dx (n \in \mathbb{N}_0) \text{ und } b_n=0 (n \in \mathbb{N})
     \end{align*}
     \item Ist $f$ ungerade, also $f(x) = -f(-x) (x \in \mathbb{R}$, so gilt für die Fourierkoeffizienten von f:
     \begin{align*}
-        a_n = 0 \text{ und } b_n= \frac{2}{\pi} \int_0^{\pi} f(x) \sin(nx) dx (n \in \mathbb{N}_0))
+        a_n = 0 \text{ und } b_n= \frac{2}{\pi} \int_0^{\pi} f(x) \sin(nx)\,dx (n \in \mathbb{N}_0))
     \end{align*}
 \end{enumerate}
 Definition: Wir setzen $g(x_0\pm) \coloneqq \lim \limits_{x \to x_0 \pm} g(x)$, falls der Grenzwert existiert und reell ist.
