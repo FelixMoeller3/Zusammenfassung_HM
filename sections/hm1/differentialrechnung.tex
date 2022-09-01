@@ -44,10 +44,21 @@ Gilt $\lim \limits_{x \to c} f(x) = \lim \limits_{x \to c} g(x) = 0$ oder $\lim 
 für den Fall, dass $L$ existiert.
 
 \subsection{Differenzieren von Potenzreihen}
-Es sei $ f(x) \coloneqq \sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$ eine Potenzreihe (PR) mit Konvergenzradius (KR) $r>0$. Dann gilt: \\
+Es sei $ f(x) \coloneqq \sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$ eine Potenzreihe (PR) mit Konvergenzradius $r>0$. Dann gilt:
 \begin{enumerate}[a)]
-    \item Die PR $\sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1}$ hat KR $r$
-    \item $f'(x) = \sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1}$
+    \item Die \glqq gliedweise differenzierte\grqq{} Potenzreihe
+    \begin{align*}
+        \sum \limits_{n=0}^{\infty} (a_n(x-x_0)^n)' 
+        = \sum \limits_{\textbf{n=1}}^{\infty} n \cdot a_n(x-x_0)^{n-1} 
+        = \sum \limits_{\textbf{n=0}}^{\infty} (n-1) \cdot a_n(x-x_0)^{n}
+    \end{align*}
+    hat denselben Konvergenzradius $r$.
+    \item $f$ ist differenzierbar auf $I = (x_0-r,r_x+r)$.
+    \begin{align*}
+        f(x)'
+        = \sum \limits_{n=1}^{\infty} n \cdot a_n(x-x_0)^{n-1} 
+        = \sum \limits_{n=0}^{\infty} (n-1) \cdot a_n(x-x_0)^{n}
+    \end{align*}
 \end{enumerate}
 
 \subsection{Tangens}
