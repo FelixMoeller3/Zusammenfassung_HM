@@ -54,7 +54,7 @@ Es sei $f: D \to \mathbb{R}$ auf $D$ differenzierbar, es seien $a,b \in D$ und $
 
 \subsection{Richtungen}
 \begin{enumerate}[a)]
-    \item Es sei $a \in \mathbb{R}^n$. Ist $\lVert a \rvert = 1,$ so heißt $a$ \underline{ein(e) Richtung(svektor)}
+    \item Es sei $a \in \mathbb{R}^n$. Ist $\lVert a \rVert = 1,$ so heißt $a$ \underline{ein(e) Richtung(svektor)}
     \item Sei $x_0 \in D$ und $a \in \mathbb{R}^n$ eine Richtung. $f$ heißt \underline{in $x_0$ in Richtung $a$ differenzierbar} $\Leftrightarrow$ Es existiert der Grenzwert
     \begin{align*}
         \frac{\partial f}{\partial a}(x_0) \coloneqq \lim \limits_{t \to 0} \frac{f(x_0 + ta) -f(x_0)}{t} \in \mathbb{R}.
@@ -65,7 +65,7 @@ Es sei $f: D \to \mathbb{R}$ auf $D$ differenzierbar, es seien $a,b \in D$ und $
 \end{enumerate}
 
 \subsection{Hesse-Matrix}
-Es sei $f \in C^2(D,\mathbb{R})$ und $x_= \in D$. Die Matrix 
+Es sei $f \in C^2(D,\mathbb{R})$ und $x_0 \in D$. Die Matrix 
 \begin{align*}
     H_f(x_0) \coloneqq \begin{pmatrix} f{x_1x_1}(x_0) & \ldots & f{x_1x_n}(x_0) \\ \vdots & & \vdots \\ f{x_nx_1}(x_0) & \ldots & f{x_nx_n}(x_0)\end{pmatrix}
 \end{align*}
@@ -81,8 +81,8 @@ Sei $f \in C^2(D,\mathbb{R}), x_0 \in D, h \in \mathbb{R}^n$ und $S[x_0,x_0+h] \
 
 Definition: Sei $A \in \mathbb{R}^{n \times n}$ symmetrisch. $A$ heißt
 \begin{enumerate} [a)]
-    \item positiv definit $\Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\} (Ax) \cdot x > 0$
-    \item negativ definit $ \Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\} (Ax) \cdot x < 0$
+    \item positiv definit $\Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\}: (Ax) \cdot x > 0$
+    \item negativ definit $ \Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\}: (Ax) \cdot x < 0$
     \item indefinit $\Leftrightarrow \exists u,v \in \mathbb{R}^n: (Au) \cdot u > 0$ und $(Av) \cdot v < 0$
 \end{enumerate}
 \vspace{0.5cm}
@@ -91,7 +91,7 @@ Kriterien für Definitheit:
 \begin{enumerate} [a)]
     \item \begin{enumerate} [i)]
         \item $A$ ist positiv definit $\Leftrightarrow$ alle EW von $A$ sind $> 0$
-        \item $A$ ist negativ definit $\Leftrightarrow$ alle EQ von $A$ sind $< 0$
+        \item $A$ ist negativ definit $\Leftrightarrow$ alle EW von $A$ sind $< 0$
         \item $A$ ist indefinit $\Leftrightarrow$ es gibt EW die $> 0$ und welche, die $< 0$ sind
     \end{enumerate}
     \item Sei $n=2, A = \begin{pmatrix} \alpha & \beta \\ \beta & \gamma\end{pmatrix}$
@@ -115,7 +115,7 @@ Kriterien für Definitheit:
 \underline{Problem:} Überprüfe Menge auf Extrema
 \underline{Lösung:} 
 \begin{enumerate}
-    \item Überprüfe, ob Menge überhaupt Extrempunkte haben kann/muss ($\widehat{=}$ dass sie kompakt ist)
-    \item Überprüfe das innere der Menge auf Extrema
-    \item Überprüfe Ränder der Menge auf Extram, sofern diese vorhanden sind
+    \item Überprüfe, ob die Menge überhaupt Extrempunkte haben kann/muss ($\widehat{=}$ dass sie kompakt ist)
+    \item Überprüfe das Innere der Menge auf Extrema
+    \item Überprüfe Ränder der Menge auf Extrama, sofern diese vorhanden sind
 \end{enumerate}
