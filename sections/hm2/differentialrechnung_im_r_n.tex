@@ -6,7 +6,7 @@ Definition:
     \begin{align*}
         f_{x_i}(x_0) \coloneqq \frac{\partial f}{\partial x_i}(x_0) \coloneqq \lim \limits_{t \to 0} \frac{f(x_0 + te_i) - f(x_0)}{t} \in \mathbb{R}.
     \end{align*}
-    In dem Fall heißt $f_{x_i}(x_0)$ die \underline{partielle Ableitung von $f$ in $x_0$ nach $x$.}
+    In dem Fall heißt $f_{x_i}(x_0)$ die \underline{partielle Ableitung von $f$ in $x_0$ nach $x_i$.}
     \item $f$ heißt in $x_0 \in D$ pdb $\Leftrightarrow$ $f$ ist in $x_0$ pdb nach allen Variablen $x_1,\ldots,x_n$.
     I.d.F. heißt der Vektor
     \begin{align*}
@@ -19,11 +19,13 @@ Definition:
         f_{x_ix_j}(x_0) \coloneqq \frac{\partial^2 f}{\partial x_j \partial x_i} (f_{x_i})_{x_j}(x_0)
     \end{align*}
     \underline{die partielle Ableitung 2. Ordnung von $f$ nach $x_i$ und $x_j$}
+    \item $f \in \underline{C^m(D, \mathbb{R})} :\Leftrightarrow$ $f$ ist auf $D$ $m$-mal stetig partiell differenzierbar 
+    :$\Leftrightarrow$ alle partiellen Ableitungen von $f$ der Ordnung $\leq m$ sind auf $D$ vorhanden und dort stetig
 \end{enumerate}
 
 \subsection{Satz von Schwartz}
 \label{sec: Schwartz}
-Es sei $m \in \mathbb{N}$ und $f \in C^m(D,\mathbb{R})$. Dann ist jede partielle Ableitung von $f$ der Ordnung $leq m$
+Es sei $m \in \mathbb{N}$ und $f \in C^m(D,\mathbb{R})$. Dann ist jede partielle Ableitung von $f$ der Ordnung $\leq m$
 unabhängig von der Reihenfolge der Differentiation.
 
 \subsection{Differenzierbarkeit}
@@ -34,7 +36,7 @@ Definition: $f$ heißt \underline{in $x_0 \in D$ differenzierbar} (db): $\Leftri
 \end{align*}
 \begin{enumerate}[a)]
     \item Ist $f$ in $x_0$ db, so ist $f$ in $x_0$ stetig und $f$ ist in $x_0$ pdb
-    \item Ist $f$ in $x_0$ db, so ist der Vektor $a$ in obiger Definition eindeutig bestimmt un $a=\text{grad}f(x_0)$ I.d.F. gilt:
+    \item Ist $f$ in $x_0$ db, so ist der Vektor $a$ in obiger Definition eindeutig bestimmt und $a=\text{grad}f(x_0)$ I.d.F. gilt:
     \begin{align*}
         f'(x_0) \coloneqq a = \text{grad}f(x_0)
     \end{align*}
@@ -42,15 +44,17 @@ Definition: $f$ heißt \underline{in $x_0 \in D$ differenzierbar} (db): $\Leftri
 \end{enumerate}
 
 \subsection{Kettenregel}
+Definition: $S[a, b] := \{a + t(b - a) : t \in [0, 1]\}$ heißt die \underline{Verbindungsstrecke} von $a$ und $b$
+
 Sei $I \subseteq \mathbb{R}$ ein Intervall, $g: I \to \mathbb{R}^n$ db in $f_0 \in I, g(I) \subseteq D$ und $f$ sei in $x_0 \coloneqq g(t_0)$ db. 
 Dann ist $f \circ g: I \to \mathbb{R}$ db in $t_0$ und $(f \circ g)' (t_0) = f'(g(t_0)) \cdot g'(t_0)$, wobei hier das (euklidische) Skalarprodukt gemeint ist.
 
 \subsection{Mittelwertsatz}
-Es sei $f D \to \mathbb{R}$ auf $D$ differenzierbar, es seien $a,b \in D$ und $S[a,b] \subseteq D$. Dann existiert ein $\xi \in S[a,b]$ mit $f(b) - f(a) = f'(\xi) \cdot (b-a)$
+Es sei $f: D \to \mathbb{R}$ auf $D$ differenzierbar, es seien $a,b \in D$ und $S[a,b] \subseteq D$. Dann existiert ein $\xi \in S[a,b]$ mit $f(b) - f(a) = f'(\xi) \cdot (b-a)$
 
 \subsection{Richtungen}
 \begin{enumerate}[a)]
-    \item Es sei $a \in \mathbb{R}^n$. Ist $\lVert a \rvert = 1,$ so heißt $a$ \underline{ein(e) Richtung(svektor)}
+    \item Es sei $a \in \mathbb{R}^n$. Ist $\lVert a \rVert = 1,$ so heißt $a$ \underline{ein(e) Richtung(svektor)}
     \item Sei $x_0 \in D$ und $a \in \mathbb{R}^n$ eine Richtung. $f$ heißt \underline{in $x_0$ in Richtung $a$ differenzierbar} $\Leftrightarrow$ Es existiert der Grenzwert
     \begin{align*}
         \frac{\partial f}{\partial a}(x_0) \coloneqq \lim \limits_{t \to 0} \frac{f(x_0 + ta) -f(x_0)}{t} \in \mathbb{R}.
@@ -61,7 +65,7 @@ Es sei $f D \to \mathbb{R}$ auf $D$ differenzierbar, es seien $a,b \in D$ und $S
 \end{enumerate}
 
 \subsection{Hesse-Matrix}
-Es sei $f \in C^2(D,\mathbb{R})$ und $x_= \in D$. Die Matrix 
+Es sei $f \in C^2(D,\mathbb{R})$ und $x_0 \in D$. Die Matrix 
 \begin{align*}
     H_f(x_0) \coloneqq \begin{pmatrix} f{x_1x_1}(x_0) & \ldots & f{x_1x_n}(x_0) \\ \vdots & & \vdots \\ f{x_nx_1}(x_0) & \ldots & f{x_nx_n}(x_0)\end{pmatrix}
 \end{align*}
@@ -77,8 +81,8 @@ Sei $f \in C^2(D,\mathbb{R}), x_0 \in D, h \in \mathbb{R}^n$ und $S[x_0,x_0+h] \
 
 Definition: Sei $A \in \mathbb{R}^{n \times n}$ symmetrisch. $A$ heißt
 \begin{enumerate} [a)]
-    \item positiv definit $\Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\} (Ax) \cdot x > 0$
-    \item negativ definit $ \Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\} (Ax) \cdot x < 0$
+    \item positiv definit $\Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\}: (Ax) \cdot x > 0$
+    \item negativ definit $ \Leftrightarrow \forall x \in \mathbb{R}^n \setminus \{0\}: (Ax) \cdot x < 0$
     \item indefinit $\Leftrightarrow \exists u,v \in \mathbb{R}^n: (Au) \cdot u > 0$ und $(Av) \cdot v < 0$
 \end{enumerate}
 \vspace{0.5cm}
@@ -87,7 +91,7 @@ Kriterien für Definitheit:
 \begin{enumerate} [a)]
     \item \begin{enumerate} [i)]
         \item $A$ ist positiv definit $\Leftrightarrow$ alle EW von $A$ sind $> 0$
-        \item $A$ ist negativ definit $\Leftrightarrow$ alle EQ von $A$ sind $< 0$
+        \item $A$ ist negativ definit $\Leftrightarrow$ alle EW von $A$ sind $< 0$
         \item $A$ ist indefinit $\Leftrightarrow$ es gibt EW die $> 0$ und welche, die $< 0$ sind
     \end{enumerate}
     \item Sei $n=2, A = \begin{pmatrix} \alpha & \beta \\ \beta & \gamma\end{pmatrix}$
@@ -111,7 +115,7 @@ Kriterien für Definitheit:
 \underline{Problem:} Überprüfe Menge auf Extrema
 \underline{Lösung:} 
 \begin{enumerate}
-    \item Überprüfe, ob Menge überhaupt Extrempunkte haben kann/muss ($\widehat{=}$ dass sie kompakt ist)
-    \item Überprüfe das innere der Menge auf Extrema
-    \item Überprüfe Ränder der Menge auf Extram, sofern diese vorhanden sind
+    \item Überprüfe, ob die Menge überhaupt Extrempunkte haben kann/muss ($\widehat{=}$ dass sie kompakt ist)
+    \item Überprüfe das Innere der Menge auf Extrema
+    \item Überprüfe Ränder der Menge auf Extrama, sofern diese vorhanden sind
 \end{enumerate}
