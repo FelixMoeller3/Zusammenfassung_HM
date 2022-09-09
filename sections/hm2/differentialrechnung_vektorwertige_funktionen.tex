@@ -44,7 +44,7 @@ Eigenschaften:
     \item $\forall x \in U_\delta(x_0) \exists_1 y \eqqcolon g(x) \in U_\eta(y_0): f(x,y)=0$
     \item $g \in C^1(U_\delta(x_0),\mathbb{R}^p)$
     \item $\forall x \in U_\delta(x_0): \text{det} \frac{\partial f}{\partial y}(x,g(x)) \neq 0$
-    \item $\forall x \in U_\delta(x_0): g'(x)=-(\frac{\partial f}{\partial y}(x,g(x))^{-1} \cdot (\frac{\partial f}{\partial x}(x,g(x))$
+    \item $\forall x \in U_\delta(x_0): g'(x)=-\left(\frac{\partial f}{\partial y}(x,g(x))\right)^{-1} \cdot \frac{\partial f}{\partial x}(x,g(x))$
 \end{enumerate}
 
 \subsection{Umkehrsatz}
@@ -55,6 +55,6 @@ $\delta > 0$ mit:
     \item $f$ ist auf $U_\delta(x_0)$ injektiv
     \item $f^{-1}: f(U_\delta(x_0)) \to U_\delta(x_0)$ ist in $C^1(f(U_\delta(x_0)),\mathbb{R}^n), \text{det}f'(x) \neq 0 (x \in U_\delta(x_0))$ und
     \begin{align*}
-        (f^{-1})'(y) = (f'(f^{-1}(y)))^{-1} \hspace{0.5cm} (y \in f(U_\delta(x_0))
+        (f^{-1})'(y) = (f'(f^{-1}(y)))^{-1} \hspace{0.5cm} (y \in f(U_\delta(x_0)))
     \end{align*}
 \end{enumerate}
