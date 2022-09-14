@@ -74,7 +74,7 @@ Betrachte $0 \leq \varphi_1 < \varphi_2 \leq 2\pi, 0 \leq R_1 < R_2$
     A \coloneqq \{ (r\cos \varphi, r\sin \varphi): \varphi \in [\varphi_1,\varphi_2], r \in [R_1,R_2]\}
 \end{align*}
 Mit $B \coloneqq [R_1,R_2] \times [\varphi_1, \varphi_2]$ ist $A = g(B)$. Auf $B^\circ = (R_1,R_2) \times (\varphi_1,\varphi_2)$ ist $g$ injektiv und $\det g' \neq 0$.
-Ist nun $f \in C(A,\mathbb{R}$, so gilt: 
+Ist nun $f \in C(A,\mathbb{R})$, so gilt: 
 \begin{align*}
     \int_A f(x,y) d(x,y) = \int_B f(r \cos \varphi,r \sin \varphi) \cdot \underbrace{r}_{= \lvert \det g'(r,\varphi)\rvert} d(r, \varphi) \stackrel{\text{Fubini}}{=}
     \int \limits_{\varphi_1}^{\varphi_2} (\int \limits_{R_1}^{R_2} f(r \cos \varphi, r \sin \varphi)r dr) d\varphi
